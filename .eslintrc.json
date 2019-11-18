@@ -42,8 +42,13 @@
       }
     ],
     "react/no-unescaped-entities": "off",
-    "line-comment-position": "off"
-    // additional rule configuration
+    "line-comment-position": "off",
+    "@typescript-eslint/explicit-member-accessibility": [
+      "warn",
+      {
+        "accessibility": "no-public"
+      }
+    ]
   },
   "overrides": [
     {
