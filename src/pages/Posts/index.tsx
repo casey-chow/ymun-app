@@ -1,8 +1,6 @@
 import {
   IonContent,
   IonHeader,
-  IonItem,
-  IonLabel,
   IonList,
   IonPage,
   IonTitle,
@@ -12,6 +10,8 @@ import React from 'react';
 import { useResource } from 'rest-hooks';
 
 import PostResource from '../../resources/post';
+
+import PostDetail from './PostDetail';
 
 const Posts: React.FC = () => {
   const posts = useResource(PostResource.listShape(), {});
@@ -27,9 +27,7 @@ const Posts: React.FC = () => {
       <IonContent>
         <IonList lines="full">
           {posts.map((post) => (
-            <IonItem key={post.id} href={`/posts/${post.id}`}>
-              <IonLabel>{post.title}</IonLabel>
-            </IonItem>
+            <PostDetail key={post.id} post={post} />
           ))}
         </IonList>
       </IonContent>
