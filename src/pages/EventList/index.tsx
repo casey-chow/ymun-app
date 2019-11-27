@@ -29,7 +29,7 @@ const EventList: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Events</IonTitle>
+          <IonTitle>Schedule</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
