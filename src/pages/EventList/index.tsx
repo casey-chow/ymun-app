@@ -10,7 +10,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import dayjs from 'dayjs';
-import { groupBy } from 'lodash';
+import { groupBy, sortBy } from 'lodash';
 import React from 'react';
 import { useResource } from 'rest-hooks';
 import EventResource from '../../resources/event';
@@ -33,12 +33,14 @@ const Events: React.FC = () => {
       <IonContent>
         <IonList lines="full">
           {Object.entries(eventsByDay).map(([day, eventsForDay]) => {
+            const eventsSorted = sortBy(eventsForDay, ['start_time']);
+
             return (
               <IonItemGroup key={day}>
                 <IonItemDivider sticky>
                   <IonLabel>{day}</IonLabel>
                 </IonItemDivider>
-                {eventsForDay.map((event) => (
+                {eventsSorted.map((event) => (
                   <EventsListItem key={event.id} event={event} />
                 ))}
               </IonItemGroup>
