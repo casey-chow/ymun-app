@@ -8,14 +8,11 @@ import {
 } from '@ionic/react';
 import React from 'react';
 import { useResource } from 'rest-hooks';
-
 import PostResource from '../../resources/post';
-
 import PostDetail from './PostDetail';
 
 const Posts: React.FC = () => {
   const posts = useResource(PostResource.listShape(), {});
-  console.log(posts);
 
   return (
     <IonPage>

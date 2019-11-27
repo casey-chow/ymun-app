@@ -11,7 +11,9 @@
     "@types/react-dom": "^16.9.1",
     "@types/react-router": "^5.1.1",
     "@types/react-router-dom": "^5.1.0",
+    "dayjs": "^1.8.17",
     "ionicons": "^4.6.3",
+    "lodash": "^4.17.15",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-router": "^5.1.0",
@@ -46,6 +48,7 @@
   "description": "An Ionic project",
   "devDependencies": {
     "@ionic/eslint-plugin": "0.0.1",
+    "@types/lodash": "^4.14.149",
     "@typescript-eslint/parser": "^2.7.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.6.0",
