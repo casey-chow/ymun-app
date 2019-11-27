@@ -11,7 +11,7 @@ const timeFormat = 'h:mm A';
 
 const EventsListItem: React.FC<EventDetailProps> = ({ event }) => {
   return (
-    <IonItem detail>
+    <IonItem routerLink={`/events/${event.id}`}>
       <div slot="start" style={{ padding: '4px 0' }} className="ion-text-end">
         <small>
           <strong>{dayjs(event.start_time).format(timeFormat)}</strong>

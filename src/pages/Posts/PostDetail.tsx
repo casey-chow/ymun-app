@@ -6,7 +6,6 @@ import {
   IonCardTitle,
 } from '@ionic/react';
 import * as React from 'react';
-
 import PostResource from '../../resources/post';
 
 interface PostDetailProps {
