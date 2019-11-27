@@ -1,6 +1,8 @@
 import { Resource, Method } from 'rest-hooks';
 
 export default abstract class BaseResource extends Resource {
+  readonly id?: number;
+
   static async fetch<T extends typeof Resource>(
     this: T,
     method: Method = 'get',
@@ -9,5 +11,9 @@ export default abstract class BaseResource extends Resource {
   ): Promise<object> {
     // Transform the return type to expose the raw data packaged by the API.
     return (await super.fetch(method, url, body)).data;
+  }
+
+  pk(): number | undefined {
+    return this.id;
   }
 }
