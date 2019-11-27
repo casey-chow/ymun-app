@@ -13,7 +13,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import dayjs from 'dayjs';
-import { time } from 'ionicons/icons';
+import { time, locate } from 'ionicons/icons';
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { useResource } from 'rest-hooks';
@@ -30,7 +30,10 @@ const EventDetail: React.FC<EventDetailProps> = ({
     params: { id },
   },
 }) => {
-  const event = useResource(EventResource.detailShape(), { id });
+  const event = useResource(EventResource.detailShape(), {
+    id,
+    fields: '*,location.*',
+  });
 
   // TODO: There has to be a more correct way to style these.
   const timeView = (
@@ -49,6 +52,26 @@ const EventDetail: React.FC<EventDetailProps> = ({
         >
           {dayjs(event.start_time).format(timeFormat)} -&nbsp;
           {dayjs(event.end_time).format(timeFormat)}
+        </h2>
+      </IonText>
+    </div>
+  );
+
+  const locationView = event.location && (
+    <div>
+      <IonIcon
+        icon={locate}
+        color="medium"
+        style={{ display: 'inline', float: 'left', paddingTop: '2px' }}
+      />
+      <IonText color="medium" style={{ paddingLeft: '6px' }}>
+        <h2
+          style={{
+            display: 'inline',
+            fontSize: '16px',
+          }}
+        >
+          {event.location.name}
         </h2>
       </IonText>
     </div>
@@ -76,6 +99,11 @@ const EventDetail: React.FC<EventDetailProps> = ({
           <IonRow>
             <IonCol>{timeView}</IonCol>
           </IonRow>
+          {event.location && (
+            <IonRow>
+              <IonCol>{locationView}</IonCol>
+            </IonRow>
+          )}
           <IonRow>
             <IonCol>
               <div dangerouslySetInnerHTML={{ __html: event.description }} />

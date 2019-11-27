@@ -16,8 +16,10 @@ import { useResource } from 'rest-hooks';
 import EventResource from '../../resources/event';
 import EventsListItem from './EventListItem';
 
-const Events: React.FC = () => {
-  const events = useResource(EventResource.listShape(), {});
+const EventList: React.FC = () => {
+  const events = useResource(EventResource.listShape(), {
+    fields: '*,location.*',
+  });
 
   const eventsByDay = groupBy(events, (event) =>
     dayjs(event.start_time).format('dddd, MMMM  D')
@@ -51,4 +53,5 @@ const Events: React.FC = () => {
     </IonPage>
   );
 };
-export default Events;
+
+export default EventList;

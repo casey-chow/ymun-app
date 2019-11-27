@@ -1,4 +1,4 @@
-import { IonItem, IonLabel } from '@ionic/react';
+import { IonItem, IonLabel, IonText } from '@ionic/react';
 import dayjs from 'dayjs';
 import * as React from 'react';
 import EventResource from '../../resources/event';
@@ -12,15 +12,29 @@ const timeFormat = 'h:mm A';
 const EventsListItem: React.FC<EventDetailProps> = ({ event }) => {
   return (
     <IonItem routerLink={`/events/${event.id}`}>
-      <div slot="start" style={{ padding: '0 0 4px' }} className="ion-text-end">
-        <small>
-          <strong>{dayjs(event.start_time).format(timeFormat)}</strong>
-          <br />
-          {dayjs(event.end_time).format(timeFormat)}
-        </small>
+      <div slot="start" className="ion-text-end">
+        <IonLabel>
+          <small>
+            <strong>{dayjs(event.start_time).format(timeFormat)}</strong>
+            <br />
+            <IonText color="medium">
+              {dayjs(event.end_time).format(timeFormat)}
+            </IonText>
+          </small>
+        </IonLabel>
       </div>
 
-      <IonLabel>{event.title}</IonLabel>
+      <IonLabel>
+        {event.title}
+        {event.location && (
+          <>
+            <br />
+            <IonText color="medium">
+              <small>{event.location.name}</small>
+            </IonText>
+          </>
+        )}
+      </IonLabel>
     </IonItem>
   );
 };
