@@ -14,7 +14,7 @@ import { groupBy } from 'lodash';
 import React from 'react';
 import { useResource } from 'rest-hooks';
 import EventResource from '../../resources/event';
-import EventDetail from './EventDetail';
+import EventsListItem from './EventListItem';
 
 const Events: React.FC = () => {
   const events = useResource(EventResource.listShape(), {});
@@ -39,7 +39,7 @@ const Events: React.FC = () => {
                   <IonLabel>{day}</IonLabel>
                 </IonItemDivider>
                 {eventsForDay.map((event) => (
-                  <EventDetail key={event.id} event={event} />
+                  <EventsListItem key={event.id} event={event} />
                 ))}
               </IonItemGroup>
             );

@@ -9,7 +9,7 @@ interface EventDetailProps {
 
 const timeFormat = 'h:mm A';
 
-const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
+const EventsListItem: React.FC<EventDetailProps> = ({ event }) => {
   return (
     <IonItem detail>
       <div slot="start" style={{ padding: '4px 0' }} className="ion-text-end">
@@ -25,4 +25,4 @@ const EventDetail: React.FC<EventDetailProps> = ({ event }) => {
   );
 };
 
-export default EventDetail;
+export default EventsListItem;

@@ -27,7 +27,7 @@ import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import Details from './pages/Details';
-import Events from './pages/Events';
+import EventList from './pages/EventList';
 import Posts from './pages/Posts';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -44,7 +44,7 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/posts" component={Posts} exact />
-                <Route path="/events" component={Events} exact />
+                <Route path="/events" component={EventList} exact />
                 <Route path="/tab1" component={Tab1} exact />
                 <Route path="/tab2" component={Tab2} exact />
                 <Route path="/tab2/details" component={Details} />
