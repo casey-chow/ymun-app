@@ -12,14 +12,38 @@ import {
 import dayjs from 'dayjs';
 import { groupBy, sortBy } from 'lodash';
 import React from 'react';
-import { useResource } from 'rest-hooks';
+import { useResource, useRetrieve } from 'rest-hooks';
 import EventResource from '../../resources/event';
+import LocationResource from '../../resources/location';
 import EventsListItem from './EventListItem';
 
 const EventList: React.FC = () => {
-  const events = useResource(EventResource.listShape(), {
-    fields: '*,location.*',
-  });
+  const events = useResource(EventResource.listShape(), {});
+  useRetrieve(LocationResource.listShape(), {});
+
+  // const evt1 = new EventResource();
+
+  // Object.assign(evt1, {
+  //   id: 1,
+  //   status: 'published',
+  //   title: 'Delegate Dance',
+  //   description: "<p>Don't forget to bring your clothes!<br></p>",
+  //   start_time: '2020-01-05 14:30:00',
+  //   end_time: '2020-01-05 15:30:00',
+  //   location: 1,
+  // });
+
+  // const evt2 = new EventResource();
+  // Object.assign(evt2, {
+  //   id: 2,
+  //   status: 'published',
+  //   title: 'Post Dance Postgame',
+  //   description: '<p>Hehehehehhehe</p>',
+  //   start_time: '2020-01-05 15:30:00',
+  //   end_time: '2020-01-05 19:30:00',
+  // });
+
+  // const events = [evt2, evt1];
 
   const eventsByDay = groupBy(events, (event) =>
     dayjs(event.start_time).format('dddd, MMMM  D')

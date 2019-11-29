@@ -1,7 +1,10 @@
 import { IonItem, IonLabel, IonText } from '@ionic/react';
 import dayjs from 'dayjs';
+import { isNil } from 'lodash';
 import * as React from 'react';
+import { useResource } from 'rest-hooks';
 import EventResource from '../../resources/event';
+import LocationResource from '../../resources/location';
 
 interface EventDetailProps {
   readonly event: EventResource;
@@ -10,6 +13,11 @@ interface EventDetailProps {
 const timeFormat = 'h:mm A';
 
 const EventsListItem: React.FC<EventDetailProps> = ({ event }) => {
+  const location = useResource(
+    LocationResource.detailShape(),
+    isNil(event.location) ? null : { id: event.location }
+  );
+
   return (
     <IonItem routerLink={`/events/${event.id}`}>
       <div slot="start" className="ion-text-end">
@@ -26,11 +34,11 @@ const EventsListItem: React.FC<EventDetailProps> = ({ event }) => {
 
       <IonLabel>
         {event.title}
-        {event.location && (
+        {location && (
           <>
             <br />
             <IonText color="medium">
-              <small>{event.location.name}</small>
+              <small>{location.name}</small>
             </IonText>
           </>
         )}

@@ -1,5 +1,4 @@
 import BaseResource from './base';
-import LocationResource from './location';
 
 export default class EventResource extends BaseResource {
   static urlRoot = 'https://ymun-app-api.caseychow.org/_/items/events';
@@ -14,5 +13,5 @@ export default class EventResource extends BaseResource {
 
   readonly end_time: string = '';
 
-  readonly location?: LocationResource;
+  readonly location?: number;
 }

@@ -13,11 +13,13 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import dayjs from 'dayjs';
-import { time, locate } from 'ionicons/icons';
+import { locate, time } from 'ionicons/icons';
+import { isNil } from 'lodash';
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { useResource } from 'rest-hooks';
 import EventResource from '../../resources/event';
+import LocationResource from '../../resources/location';
 
 type EventDetailProps = RouteComponentProps<{
   id: string;
@@ -30,10 +32,23 @@ const EventDetail: React.FC<EventDetailProps> = ({
     params: { id },
   },
 }) => {
-  const event = useResource(EventResource.detailShape(), {
-    id,
-    fields: '*,location.*',
-  });
+  const event = useResource(EventResource.detailShape(), { id });
+  const location = useResource(
+    LocationResource.detailShape(),
+    isNil(event.location) ? null : { id: event.location }
+  );
+
+  // const event = new EventResource();
+
+  // Object.assign(event, {
+  //   id: 1,
+  //   status: 'published',
+  //   title: 'Delegate Dance',
+  //   description: "<p>Don't forget to bring your clothes!<br></p>",
+  //   start_time: '2020-01-05 14:30:00',
+  //   end_time: '2020-01-05 15:30:00',
+  //   location: 1,
+  // });
 
   // TODO: There has to be a more correct way to style these.
   const timeView = (
@@ -57,7 +72,7 @@ const EventDetail: React.FC<EventDetailProps> = ({
     </div>
   );
 
-  const locationView = event.location && (
+  const locationView = location && (
     <div>
       <IonIcon
         icon={locate}
@@ -71,7 +86,7 @@ const EventDetail: React.FC<EventDetailProps> = ({
             fontSize: '16px',
           }}
         >
-          {event.location.name}
+          {location.name}
         </h2>
       </IonText>
     </div>
