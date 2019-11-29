@@ -5,6 +5,5 @@ export default class LocationResource extends BaseResource {
 
   readonly name: string = '';
 
-  // TODO
-  // readonly map: string = '';
+  readonly map?: number = 0;
 }
