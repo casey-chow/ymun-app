@@ -2,7 +2,7 @@ import { IonItem, IonLabel, IonText } from '@ionic/react';
 import dayjs from 'dayjs';
 import { isNil } from 'lodash';
 import * as React from 'react';
-import { useResource } from 'rest-hooks';
+import { useCache } from 'rest-hooks';
 import EventResource from '../../resources/event';
 import LocationResource from '../../resources/location';
 
@@ -13,7 +13,7 @@ interface EventDetailProps {
 const timeFormat = 'h:mm A';
 
 const EventsListItem: React.FC<EventDetailProps> = ({ event }) => {
-  const location = useResource(
+  const location = useCache(
     LocationResource.detailShape(),
     isNil(event.location) ? null : { id: event.location }
   );

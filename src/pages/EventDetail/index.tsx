@@ -6,6 +6,7 @@ import {
   IonGrid,
   IonHeader,
   IonIcon,
+  IonImg,
   IonPage,
   IonRow,
   IonText,
@@ -14,11 +15,11 @@ import {
 } from '@ionic/react';
 import dayjs from 'dayjs';
 import { locate, time } from 'ionicons/icons';
-import { isNil } from 'lodash';
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { useResource } from 'rest-hooks';
 import EventResource from '../../resources/event';
+import FileResource from '../../resources/file';
 import LocationResource from '../../resources/location';
 
 type EventDetailProps = RouteComponentProps<{
@@ -35,7 +36,11 @@ const EventDetail: React.FC<EventDetailProps> = ({
   const event = useResource(EventResource.detailShape(), { id });
   const location = useResource(
     LocationResource.detailShape(),
-    isNil(event.location) ? null : { id: event.location }
+    event.location ? { id: event.location } : null
+  );
+  const map = useResource(
+    FileResource.detailShape(),
+    location && location.map ? { id: location.map } : null
   );
 
   // const event = new EventResource();
@@ -124,6 +129,13 @@ const EventDetail: React.FC<EventDetailProps> = ({
               <div dangerouslySetInnerHTML={{ __html: event.description }} />
             </IonCol>
           </IonRow>
+          {map && (
+            <IonRow>
+              <IonCol>
+                <IonImg src={map.url} />
+              </IonCol>
+            </IonRow>
+          )}
         </IonGrid>
       </IonContent>
     </IonPage>
