@@ -22,13 +22,14 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { apps, flash, send, time } from 'ionicons/icons';
+import { apps, flash, send, time, map } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 
 import Details from './pages/Details';
 import Posts from './pages/Posts';
+import Rooms from './pages/Rooms';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -43,9 +44,10 @@ const App: React.FC = () => (
           <IonReactRouter>
             <IonTabs>
               <IonRouterOutlet>
-                <Route path="/posts" component={Posts} exact />
-                <Route path="/tab1" component={Tab1} exact />
-                <Route path="/tab2" component={Tab2} exact />
+                <Route path="/posts" component={Posts} exact={true} />
+                <Route path="/rooms" component={Rooms} exact={true} />
+                <Route path="/tab1" component={Tab1} exact={true} />
+                <Route path="/tab2" component={Tab2} exact={true} />
                 <Route path="/tab2/details" component={Details} />
                 <Route path="/tab3" component={Tab3} />
                 <Route
@@ -58,6 +60,10 @@ const App: React.FC = () => (
                 <IonTabButton tab="posts" href="/posts">
                   <IonIcon icon={time} />
                   <IonLabel>Posts</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="rooms" href="/rooms">
+                  <IonIcon icon={map} />
+                  <IonLabel>Rooms</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab1" href="/tab1">
                   <IonIcon icon={flash} />
@@ -79,4 +85,5 @@ const App: React.FC = () => (
     </IonApp>
   </CacheProvider>
 );
+
 export default App;
