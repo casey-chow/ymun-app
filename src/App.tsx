@@ -25,7 +25,7 @@ import '@ionic/react/css/typography.css';
 import { apps, calendar, send, time } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
+import { ExternalCacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import Details from './pages/Details';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
@@ -35,10 +35,11 @@ import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 /* Theme variables */
 import './theme/variables.css';
+import { store, restHooksSelector } from './store';
 
 const App: React.FC = () => (
-  <CacheProvider>
-    <IonApp>
+  <IonApp>
+    <ExternalCacheProvider store={store} selector={restHooksSelector}>
       <Suspense fallback={<IonSpinner />}>
         <NetworkErrorBoundary>
           <IonReactRouter>
@@ -79,7 +80,7 @@ const App: React.FC = () => (
           </IonReactRouter>
         </NetworkErrorBoundary>
       </Suspense>
-    </IonApp>
-  </CacheProvider>
+    </ExternalCacheProvider>
+  </IonApp>
 );
 export default App;
