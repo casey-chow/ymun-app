@@ -5,13 +5,25 @@ import {
   PromiseifyMiddleware,
   reducer as restHooksReducer,
 } from 'rest-hooks';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
-const manager = new NetworkManager();
+const expiryMs = 60 * 60 * 1000;
+const manager = new NetworkManager(expiryMs, 1000);
 
-const reducer = combineReducers({
-  restHooks: restHooksReducer,
-});
+const restHooksPersistConfig = {
+  key: 'restHooks',
+  storage,
+  // stateReconciler: autoMergeLevel2,
+  debug: true,
+};
 
+const reducer = persistReducer(
+  restHooksPersistConfig,
+  combineReducers({
+    restHooks: restHooksReducer,
+  })
+);
 const composeEnhancers = composeWithDevTools({});
 
 // Configured per instructions from:
@@ -22,6 +34,8 @@ export const store = createStore(
     applyMiddleware(manager.getMiddleware(), PromiseifyMiddleware)
   )
 );
+
+export const persistor = persistStore(store);
 
 export const restHooksSelector = (
   state: ReturnType<typeof reducer>
