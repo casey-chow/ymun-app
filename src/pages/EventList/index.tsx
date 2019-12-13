@@ -1,21 +1,23 @@
 import {
+  IonButtons,
   IonContent,
   IonHeader,
-  IonItemDivider,
-  IonItemGroup,
-  IonLabel,
   IonList,
   IonPage,
+  IonSelect,
+  IonSelectOption,
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
 import dayjs from 'dayjs';
 import { groupBy, sortBy } from 'lodash';
-import React from 'react';
+import React, { useState } from 'react';
 import { useResource, useRetrieve } from 'rest-hooks';
 import EventResource from '../../resources/event';
 import LocationResource from '../../resources/location';
 import EventsListItem from './EventListItem';
+
+const dateFormat = 'dddd, MMMM D';
 
 const EventList: React.FC = () => {
   const events = useResource(EventResource.listShape(), {});
@@ -46,32 +48,47 @@ const EventList: React.FC = () => {
   // const events = [evt2, evt1];
 
   const eventsByDay = groupBy(events, (event) =>
-    dayjs(event.start_time).format('dddd, MMMM  D')
+    dayjs(event.start_time).format(dateFormat)
   );
+  const allDays = Object.keys(eventsByDay);
+
+  // get the current date, or the first day of the schedule if not available
+  const initialDay = (() => {
+    const currentDate = dayjs().format(dateFormat);
+    if (allDays.includes(currentDate)) {
+      return currentDate;
+    } else {
+      return allDays[0];
+    }
+  })();
+
+  // TODO: Set the initial day based on current day.
+  const [currentDay, setCurrentDay] = useState(initialDay);
+  const eventsSorted = sortBy(eventsByDay[currentDay], ['start_time']);
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle>Schedule</IonTitle>
+          <IonButtons slot="primary">
+            <IonSelect
+              value={currentDay}
+              interface="popover"
+              onIonChange={(change) => setCurrentDay(change.detail.value)}
+            >
+              {allDays.map((day) => (
+                <IonSelectOption key={day}>{day}</IonSelectOption>
+              ))}
+            </IonSelect>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonList lines="full">
-          {Object.entries(eventsByDay).map(([day, eventsForDay]) => {
-            const eventsSorted = sortBy(eventsForDay, ['start_time']);
-
-            return (
-              <IonItemGroup key={day}>
-                <IonItemDivider sticky>
-                  <IonLabel>{day}</IonLabel>
-                </IonItemDivider>
-                {eventsSorted.map((event) => (
-                  <EventsListItem key={event.id} event={event} />
-                ))}
-              </IonItemGroup>
-            );
-          })}
+          {eventsSorted.map((event) => (
+            <EventsListItem key={event.id} event={event} />
+          ))}
         </IonList>
       </IonContent>
     </IonPage>
