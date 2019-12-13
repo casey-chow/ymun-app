@@ -9,10 +9,11 @@ import {
 import React from 'react';
 import { useResource } from 'rest-hooks';
 import PostResource from '../../resources/post';
-import PostDetail from './PostDetail';
+import PostList from './PostList';
 
 const Posts: React.FC = () => {
   const posts = useResource(PostResource.listShape(), {});
+  console.log(posts);
 
   return (
     <IonPage>
@@ -24,7 +25,7 @@ const Posts: React.FC = () => {
       <IonContent>
         <IonList lines="full">
           {posts.map((post) => (
-            <PostDetail key={post.id} post={post} />
+            <PostList key={post.id} post={post} />
           ))}
         </IonList>
       </IonContent>
