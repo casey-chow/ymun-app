@@ -17,6 +17,8 @@ export default class PostResource extends BaseResource {
 
   readonly body: string = '';
 
+  readonly author: string = '';
+
   readonly modified_by: number | null = null;
 
   pk(): number | undefined {
