@@ -30,6 +30,7 @@ import Details from './pages/Details';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Posts from './pages/Posts';
+import PostDetail from './pages/PostDetail';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -45,6 +46,7 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/posts" component={Posts} exact />
+                <Route path="/posts/:id" component={PostDetail} />
                 <Route path="/events" component={EventList} exact />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route path="/tab1" component={Tab1} exact />
