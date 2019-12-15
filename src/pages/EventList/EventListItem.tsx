@@ -1,4 +1,10 @@
-import { IonIcon, IonItem, IonLabel, IonText } from '@ionic/react';
+import {
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonText,
+  IonRippleEffect,
+} from '@ionic/react';
 import dayjs from 'dayjs';
 import { arrowDropleft, arrowDropdown } from 'ionicons/icons';
 import { isNil } from 'lodash';
@@ -36,7 +42,9 @@ const EventsListItem: React.FC<EventDetailProps> = ({
       }}
       onClick={memoizedOnClick}
       className="ion-activatable"
+      button // needed for ripple: https://git.io/JeQM7
     >
+      <IonRippleEffect />
       <div slot="start" className="ion-text-end">
         <small>
           <strong>{dayjs(event.start_time).format(timeFormat)}</strong>
