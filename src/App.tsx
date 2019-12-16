@@ -30,6 +30,7 @@ import Details from './pages/Details';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Posts from './pages/Posts';
+import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -52,6 +53,10 @@ const App: React.FC = () => (
                   path="/resources"
                   component={ResourceCategoryList}
                   exact
+                />
+                <Route
+                  path="/resources/:id"
+                  component={ResourceCategoryDetail}
                 />
                 <Route path="/tab1" component={Tab1} exact />
                 <Route path="/tab2" component={Tab2} exact />
