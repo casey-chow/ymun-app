@@ -50,7 +50,8 @@
       }
     ],
     "react/prop-types": "off",
-    "capitalized-comments": "off"
+    "capitalized-comments": "off",
+    "@typescript-eslint/indent": "off"
   },
   "overrides": [
     {
