@@ -132,7 +132,7 @@ const EventDetail: React.FC<EventDetailProps> = ({
           {map && (
             <IonRow>
               <IonCol>
-                <IonImg src={map.url} />
+                <IonImg src={map.data.url} />
               </IonCol>
             </IonRow>
           )}
