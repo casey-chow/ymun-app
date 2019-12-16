@@ -13,7 +13,7 @@ export default abstract class BaseResource extends Resource {
     return (await super.fetch(method, url, body)).data;
   }
 
-  pk(): number | undefined {
+  pk(): string | number | undefined {
     return this.id;
   }
 }

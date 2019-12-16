@@ -1,6 +1,6 @@
 import BaseResource from './base';
 
-export interface Category {
+export interface Section {
   title?: string;
   body?: string;
 }
@@ -14,5 +14,5 @@ export default class ResourcePageResource extends BaseResource {
 
   readonly body?: string;
 
-  readonly categories?: Category[];
+  readonly sections?: Section[];
 }
