@@ -7,9 +7,9 @@ export interface Thumbnail {
 }
 
 export default class FileResource extends BaseResource {
-  static urlRoot = 'https://ymun-app-api.caseychow.org/_/files';
+  static urlRoot = 'https://ymun-app.caseychow.org/_/files';
 
-  static fileRoot = 'https://ymun-app-api.caseychow.org';
+  static fileRoot = 'https://ymun-app.caseychow.org';
 
   readonly type: string = '';
 
