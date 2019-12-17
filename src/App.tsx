@@ -22,15 +22,15 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { apps, flash, send, time, map } from 'ionicons/icons';
+import { apps, calendar, send, time, map } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
-
 import Details from './pages/Details';
+import EventDetail from './pages/EventDetail';
+import EventList from './pages/EventList';
 import Posts from './pages/Posts';
 import Rooms from './pages/Rooms';
-import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 /* Theme variables */
@@ -46,7 +46,8 @@ const App: React.FC = () => (
               <IonRouterOutlet>
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/rooms" component={Rooms} exact={true} />
-                <Route path="/tab1" component={Tab1} exact={true} />
+                <Route path="/events" component={EventList} exact={true} />
+                <Route path="/events/:id" component={EventDetail} />
                 <Route path="/tab2" component={Tab2} exact={true} />
                 <Route path="/tab2/details" component={Details} />
                 <Route path="/tab3" component={Tab3} />
@@ -65,9 +66,9 @@ const App: React.FC = () => (
                   <IonIcon icon={map} />
                   <IonLabel>Rooms</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="tab1" href="/tab1">
-                  <IonIcon icon={flash} />
-                  <IonLabel>Tab One</IonLabel>
+                <IonTabButton tab="events" href="/events">
+                  <IonIcon icon={calendar} />
+                  <IonLabel>Schedule</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab2" href="/tab2">
                   <IonIcon icon={apps} />
