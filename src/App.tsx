@@ -22,7 +22,7 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { apps, calendar, send, time, map } from 'ionicons/icons';
+import { calendar, send, time, map, home } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
@@ -31,7 +31,7 @@ import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Posts from './pages/Posts';
 import Rooms from './pages/Rooms';
-import Tab2 from './pages/Tab2';
+import Home from './pages/Home';
 import Tab3 from './pages/Tab3';
 /* Theme variables */
 import './theme/variables.css';
@@ -48,12 +48,12 @@ const App: React.FC = () => (
                 <Route path="/rooms" component={Rooms} exact={true} />
                 <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
-                <Route path="/tab2" component={Tab2} exact={true} />
+                <Route path="/home" component={Home} exact={true} />
                 <Route path="/tab2/details" component={Details} />
                 <Route path="/tab3" component={Tab3} />
                 <Route
                   path="/"
-                  render={() => <Redirect to="/posts" />}
+                  render={() => <Redirect to="/home" />}
                   exact={true}
                 />
               </IonRouterOutlet>
@@ -66,13 +66,13 @@ const App: React.FC = () => (
                   <IonIcon icon={map} />
                   <IonLabel>Rooms</IonLabel>
                 </IonTabButton>
+                <IonTabButton tab="Home" href="/home">
+                  <IonIcon icon={home} />
+                  <IonLabel>Home</IonLabel>
+                </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
                   <IonLabel>Schedule</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="tab2" href="/tab2">
-                  <IonIcon icon={apps} />
-                  <IonLabel>Tab Two</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab3" href="/tab3">
                   <IonIcon icon={send} />
