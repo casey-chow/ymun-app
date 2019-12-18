@@ -7,7 +7,6 @@ const slideOpts = {
   speed: 400,
   spaceBetween: 0,
   autoplay: true,
-  loop: true,
 };
 
 const styles = {
