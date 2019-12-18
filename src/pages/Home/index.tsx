@@ -12,6 +12,8 @@ import {
 } from '@ionic/react';
 import PhotoSlider from './PhotoSlider';
 import Announcements from './Announcements';
+import UpNextTime from './UpNextTime';
+import UpNextEvent from './UpNextEvent';
 
 const styles = {
   logo: {
@@ -61,6 +63,28 @@ const Home: React.FC = () => {
           <IonRow>
             <IonCol>
               <Announcements />
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <IonTitle
+                class="ion-text-left"
+                style={{
+                  paddingTop: '25px',
+                  marginLeft: '-65px',
+                  width: 'auto',
+                }}
+              >
+                Up Next
+              </IonTitle>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <UpNextTime />
+            </IonCol>
+            <IonCol>
+              <UpNextEvent />
             </IonCol>
           </IonRow>
         </IonGrid>
