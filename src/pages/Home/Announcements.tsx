@@ -24,7 +24,7 @@ const styles = {
 const makeAnnouncement = (text: string, key: number): JSX.Element => {
   return (
     <IonSlide key={key}>
-      <IonCard color={'tertiary'} key={key} style={styles.card}>
+      <IonCard color={'secondary'} key={key} style={styles.card}>
         <IonCardContent>{text}</IonCardContent>
       </IonCard>
     </IonSlide>
