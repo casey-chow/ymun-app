@@ -15,6 +15,12 @@ const styles = {
   button: {},
 };
 
+/**
+ * Creates a slide for a new announcement.
+ * @param text the message we want to announce.
+ * @param key the index (id) of the announcement slide.
+ * @returns JSX element representing an announcement slide.
+ */
 const makeAnnouncement = (text: string, key: number): JSX.Element => {
   return (
     <IonSlide key={key}>
