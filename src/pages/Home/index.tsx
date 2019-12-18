@@ -11,6 +11,7 @@ import {
   IonCol,
 } from '@ionic/react';
 import PhotoSlider from './PhotoSlider';
+import Announcements from './Announcements';
 
 const styles = {
   logo: {
@@ -41,6 +42,25 @@ const Home: React.FC = () => {
           <IonRow>
             <IonCol>
               <PhotoSlider />
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <IonTitle
+                class="ion-text-left"
+                style={{
+                  paddingTop: '25px',
+                  marginLeft: '-65px',
+                  width: 'auto',
+                }}
+              >
+                Announcements
+              </IonTitle>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <Announcements />
             </IonCol>
           </IonRow>
         </IonGrid>
