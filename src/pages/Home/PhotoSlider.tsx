@@ -37,7 +37,8 @@ const createSlide = (image: string, key: number): JSX.Element => {
     <IonSlide key={key}>
       <IonImg key={key} src={image} style={styles.image} />
       <IonButton
-        color={'primary'}
+        color={'light'}
+        fill={'outline'}
         size={'small'}
         style={styles.button}
         href={'/posts'}

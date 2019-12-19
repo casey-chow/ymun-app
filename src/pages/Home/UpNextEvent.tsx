@@ -1,5 +1,20 @@
 import React from 'react';
-import { IonCard, IonCardContent } from '@ionic/react';
+import { IonCard, IonCardContent, isPlatform } from '@ionic/react';
+
+const styles = {
+  iOSCard: {
+    display: 'inline-block',
+    width: '100%',
+    textAlign: 'center',
+    right: '32px',
+  },
+  androidCard: {
+    display: 'inline-block',
+    width: '100%',
+    textAlign: 'center',
+    right: '25px',
+  },
+};
 
 const UpNextEvent: React.FC = () => {
   // TODO: get calendar event from our backend.
@@ -8,11 +23,7 @@ const UpNextEvent: React.FC = () => {
     <IonCard
       key={'upNextEvent'}
       color="primary"
-      style={{
-        display: 'inline-block',
-        width: '40vw',
-        textAlign: 'center',
-      }}
+      style={isPlatform('ios') ? styles.iOSCard : styles.androidCard}
     >
       <IonCardContent>The Dance</IonCardContent>
     </IonCard>
