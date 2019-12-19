@@ -32,7 +32,8 @@ const PostList: React.FC<PostListProps> = ({ post }) => {
       <IonCardHeader>
         <IonCardTitle>{post.title}</IonCardTitle>
         <IonCardSubtitle>
-          {post.author} {post.created_on}
+          {post.created_by.first_name} {post.created_by.last_name}{' '}
+          {post.created_on}
         </IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent id="content">
