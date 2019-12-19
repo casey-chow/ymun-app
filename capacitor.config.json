@@ -1,8 +1,8 @@
 {
-  "appId": "org.caseychow.ymun_app",
+  "appId": "org.caseychow.ymunapp",
   "appName": "ymun-app",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "public",
+  "webDir": "build",
   "cordova": {}
 }
