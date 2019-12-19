@@ -13,8 +13,6 @@ import PostList from './PostList';
 
 const Posts: React.FC = () => {
   const posts = useResource(PostResource.listShape(), {});
-  console.log(posts);
-
   return (
     <IonPage>
       <IonHeader>
