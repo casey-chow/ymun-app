@@ -1,6 +1,8 @@
 {
   "name": "ymun-app",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react",
   "id": "3779c4f5"
 }
