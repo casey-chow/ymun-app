@@ -15,11 +15,11 @@ import { RouteComponentProps } from 'react-router';
 import { useResource } from 'rest-hooks';
 import PostResource from '../../resources/post';
 
-type NewsDetailProps = RouteComponentProps<{
+type PostDetailProps = RouteComponentProps<{
   id: string;
 }>;
 
-const PostDetail: React.FC<NewsDetailProps> = ({
+const PostDetail: React.FC<PostDetailProps> = ({
   match: {
     params: { id },
   },
@@ -39,7 +39,8 @@ const PostDetail: React.FC<NewsDetailProps> = ({
       <IonContent>
         <IonCardTitle>{post.title}</IonCardTitle>
         <IonCardSubtitle>
-          {post.author} {post.created_on}
+          {post.created_by.first_name} {post.created_by.last_name}{' '}
+          {post.created_on}
         </IonCardSubtitle>
         <Interweave content={post.body} />
       </IonContent>
