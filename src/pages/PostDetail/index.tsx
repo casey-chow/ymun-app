@@ -39,7 +39,7 @@ const PostDetail: React.FC<PostDetailProps> = ({
       <IonContent>
         <IonCardTitle>{post.title}</IonCardTitle>
         <IonCardSubtitle>
-          {post.created_by.firstName} {post.created_by.lastName}{' '}
+          {post.created_by.first_name} {post.created_by.last_name}{' '}
           {post.created_on}
         </IonCardSubtitle>
         <Interweave content={post.body} />

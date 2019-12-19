@@ -11,16 +11,16 @@ export default class PostResource extends BaseResource {
 
   readonly created_by: {
     readonly id?: number | null;
-    readonly firstName?: string | null;
-    readonly lastName?: string | null;
+    readonly first_name?: string | null;
+    readonly last_name?: string | null;
     readonly avatar?: string | null;
     readonly faSecret?: string | null;
     readonly role?: number | null;
     readonly theme?: string | null;
   } = {
     id: 0,
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     avatar: '',
     faSecret: '',
     role: 0,
