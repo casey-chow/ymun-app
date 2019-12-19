@@ -9,11 +9,14 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonButton,
+  isPlatform,
 } from '@ionic/react';
 import PhotoSlider from './PhotoSlider';
 import Announcements from './Announcements';
 import UpNextTime from './UpNextTime';
 import UpNextEvent from './UpNextEvent';
+import News from './News';
 
 const styles = {
   logo: {
@@ -23,6 +26,37 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto',
   },
+  iOSTitle: {
+    paddingTop: '25px',
+    width: 'auto',
+    marginLeft: '-64px',
+    textAlign: 'left',
+  },
+  iOSButton: {
+    width: 'auto',
+    height: '25px',
+    position: 'absolute',
+    zIndex: '99',
+    bottom: '-5px',
+    right: '20px',
+    paddingTop: '5px',
+    paddingBottom: '5px',
+  },
+  androidTitle: {
+    paddingTop: '25px',
+    width: 'auto',
+    textAlign: 'left',
+  },
+  androidButton: {
+    width: 'auto',
+    height: '25px',
+    position: 'absolute',
+    zIndex: '99',
+    bottom: '-20px',
+    right: '20px',
+    paddingTop: '5px',
+    paddingBottom: '5px',
+  },
 };
 
 const Home: React.FC = () => {
@@ -30,13 +64,11 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>
-            <IonImg
-              src="/assets/ymca-logo.png"
-              alt="ymca-logo"
-              style={styles.logo}
-            />
-          </IonTitle>
+          <IonImg
+            src="/assets/ymca-logo.png"
+            alt="ymca-logo"
+            style={styles.logo}
+          />
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -49,12 +81,9 @@ const Home: React.FC = () => {
           <IonRow>
             <IonCol>
               <IonTitle
-                class="ion-text-left"
-                style={{
-                  paddingTop: '25px',
-                  marginLeft: '-65px',
-                  width: 'auto',
-                }}
+                style={
+                  isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
+                }
               >
                 Announcements
               </IonTitle>
@@ -68,12 +97,9 @@ const Home: React.FC = () => {
           <IonRow>
             <IonCol>
               <IonTitle
-                class="ion-text-left"
-                style={{
-                  paddingTop: '25px',
-                  marginLeft: '-65px',
-                  width: 'auto',
-                }}
+                style={
+                  isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
+                }
               >
                 Up Next
               </IonTitle>
@@ -85,6 +111,44 @@ const Home: React.FC = () => {
             </IonCol>
             <IonCol>
               <UpNextEvent />
+              <IonButton
+                color={'primary'}
+                size={'small'}
+                fill={'outline'}
+                style={
+                  isPlatform('ios') ? styles.iOSButton : styles.androidButton
+                }
+                href={'/events'}
+              >
+                SCHEDULE
+              </IonButton>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <IonTitle
+                style={
+                  isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
+                }
+              >
+                News
+              </IonTitle>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol>
+              <News />
+              <IonButton
+                color={'primary'}
+                size={'small'}
+                fill={'outline'}
+                style={
+                  isPlatform('ios') ? styles.iOSButton : styles.androidButton
+                }
+                href={'/posts'}
+              >
+                NEWS
+              </IonButton>
             </IonCol>
           </IonRow>
         </IonGrid>

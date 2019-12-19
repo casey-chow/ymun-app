@@ -8,6 +8,8 @@ import {
 import * as React from 'react';
 import PostResource from '../../resources/post';
 
+import './PostDetail.scss';
+
 interface PostDetailProps {
   readonly post: PostResource;
 }
@@ -19,7 +21,10 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
         <IonCardTitle>{post.title}</IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
-        <article dangerouslySetInnerHTML={{ __html: post.body }} />
+        <article
+          className="line-clamp"
+          dangerouslySetInnerHTML={{ __html: post.body }}
+        />
         <IonButton size="small" href={`/posts/${post.id}`}>
           Read More
         </IonButton>
