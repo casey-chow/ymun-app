@@ -17,7 +17,7 @@ import EventResource from '../../resources/event';
 import LocationResource from '../../resources/location';
 import EventsListItem from './EventListItem';
 
-const dateFormat = 'dddd, MMMM D';
+const dateFormat = 'dddd, MMM D';
 
 const EventList: React.FC = () => {
   const events = useResource(EventResource.listShape(), {});
