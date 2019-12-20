@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "appId": "io.ionic.starter",
-=======
   "appId": "org.caseychow.ymunapp",
->>>>>>> master
   "appName": "ymun-app",
   "bundledWebRuntime": false,
   "npmClient": "npm",
