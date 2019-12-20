@@ -43,7 +43,7 @@ const PostDetail: React.FC<PostDetailProps> = ({
           {post.created_by.first_name} {post.created_by.last_name}{' '}
           {post.created_on}
         </IonCardSubtitle>
-        <IonImg src={post.header_image.data.url}></IonImg>
+        <IonImg src={post.header_image.data.url} />
         <Interweave content={post.body} />
       </IonContent>
     </IonPage>
