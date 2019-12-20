@@ -22,7 +22,7 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { calendar, send, time, map, home } from 'ionicons/icons';
+import { book, calendar, send, time, map, home } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
@@ -32,6 +32,13 @@ import EventList from './pages/EventList';
 import Posts from './pages/Posts';
 import Rooms from './pages/Rooms';
 import Home from './pages/Home';
+import PostDetail from './pages/PostDetail';
+import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
+import ResourceCategoryList from './pages/ResourceCategoryList/index';
+import ResourcePageDetail from './pages/ResourcePageDetail/index';
+import Press from './pages/PressHome/index';
+import Tab1 from './pages/Tab1';
+import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
 /* Theme variables */
 import './theme/variables.css';
@@ -44,11 +51,28 @@ const App: React.FC = () => (
           <IonReactRouter>
             <IonTabs>
               <IonRouterOutlet>
+                <Route path="/press" component={Press} exact={true} />
                 <Route path="/posts" component={Posts} exact={true} />
+                <Route path="/posts/:id" component={PostDetail} />
                 <Route path="/rooms" component={Rooms} exact={true} />
                 <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route path="/home" component={Home} exact={true} />
+                <Route
+                  path="/resources"
+                  component={ResourceCategoryList}
+                  exact={true}
+                />
+                <Route
+                  path="/resources/:categoryId/pages/:pageId"
+                  component={ResourcePageDetail}
+                />
+                <Route
+                  path="/resources/:id"
+                  component={ResourceCategoryDetail}
+                />
+                <Route path="/tab1" component={Tab1} exact={true} />
+                <Route path="/tab2" component={Tab2} exact={true} />
                 <Route path="/tab2/details" component={Details} />
                 <Route path="/tab3" component={Tab3} />
                 <Route
@@ -58,9 +82,9 @@ const App: React.FC = () => (
                 />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
-                <IonTabButton tab="posts" href="/posts">
+                <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={time} />
-                  <IonLabel>Posts</IonLabel>
+                  <IonLabel>Press</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="rooms" href="/rooms">
                   <IonIcon icon={map} />
@@ -73,6 +97,10 @@ const App: React.FC = () => (
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
                   <IonLabel>Schedule</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="resources" href="/resources">
+                  <IonIcon icon={book} />
+                  <IonLabel>Resources</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="tab3" href="/tab3">
                   <IonIcon icon={send} />

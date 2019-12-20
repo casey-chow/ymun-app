@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonSlides, IonSlide } from '@ionic/react';
 import { useResource } from 'rest-hooks';
-import PostDetail from '../Posts/PostDetail';
+import PostDetail from '../PostDetail/index';
 import PostResource from '../../resources/post';
 // import Swiper from 'swiper';
 
@@ -26,7 +26,7 @@ const News: React.FC = () => {
     >
       {posts.map((post) => (
         <IonSlide key={post.id}>
-          <PostDetail key={post.id} post={post} />
+          <PostDetail id={post.id} />
         </IonSlide>
       ))}
     </IonSlides>
