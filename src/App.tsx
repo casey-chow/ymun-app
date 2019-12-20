@@ -22,7 +22,7 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { book, calendar, send, time } from 'ionicons/icons';
+import { book, calendar, send, time, map } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
@@ -30,6 +30,7 @@ import Details from './pages/Details';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Posts from './pages/Posts';
+import Rooms from './pages/Rooms';
 import PostDetail from './pages/PostDetail';
 import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
@@ -49,15 +50,16 @@ const App: React.FC = () => (
           <IonReactRouter>
             <IonTabs>
               <IonRouterOutlet>
-                <Route path="/press" component={Press} exact />
-                <Route path="/posts" component={Posts} exact />
+                <Route path="/press" component={Press} exact={true} />
+                <Route path="/rooms" component={Rooms} exact={true} />
+                <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
-                <Route path="/events" component={EventList} exact />
+                <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route
                   path="/resources"
                   component={ResourceCategoryList}
-                  exact
+                  exact={true}
                 />
                 <Route
                   path="/resources/:categoryId/pages/:pageId"
@@ -67,8 +69,8 @@ const App: React.FC = () => (
                   path="/resources/:id"
                   component={ResourceCategoryDetail}
                 />
-                <Route path="/tab1" component={Tab1} exact />
-                <Route path="/tab2" component={Tab2} exact />
+                <Route path="/tab1" component={Tab1} exact={true} />
+                <Route path="/tab2" component={Tab2} exact={true} />
                 <Route path="/tab2/details" component={Details} />
                 <Route path="/tab3" component={Tab3} />
                 <Route
@@ -81,6 +83,10 @@ const App: React.FC = () => (
                 <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={time} />
                   <IonLabel>Press</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="rooms" href="/rooms">
+                  <IonIcon icon={map} />
+                  <IonLabel>Rooms</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
@@ -102,4 +108,5 @@ const App: React.FC = () => (
     </IonApp>
   </CacheProvider>
 );
+
 export default App;
