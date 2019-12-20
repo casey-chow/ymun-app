@@ -52,9 +52,9 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
+                <Route path="/rooms" component={Rooms} exact={true} />
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
-                <Route path="/rooms" component={Rooms} exact={true} />
                 <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route path="/home" component={Home} exact={true} />
