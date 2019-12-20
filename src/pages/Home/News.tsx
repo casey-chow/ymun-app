@@ -1,7 +1,6 @@
 import { IonSlide, IonSlides } from '@ionic/react';
 import React from 'react';
 import { useResource } from 'rest-hooks';
-import PostDetail from '../PostDetail/index';
 import PostResource from '../../resources/post';
 // import Swiper from 'swiper';
 
@@ -25,9 +24,7 @@ const News: React.FC = () => {
       onIonSlidesDidLoad={() => window.resizeBy(0.1, 0.1)}
     >
       {posts.map((post) => (
-        <IonSlide key={post.id}>
-          <PostDetail id={post.id} />
-        </IonSlide>
+        <IonSlide key={post.id}>{/* <PostDetail id={post.id} /> */}</IonSlide>
       ))}
     </IonSlides>
   );
