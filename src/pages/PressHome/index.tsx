@@ -49,7 +49,7 @@ const Press: React.FC<PostListProps> = () => {
   const slideOptsGallery = {
     initialSlide: 1,
     slidesPerView: 1,
-    freeMode: true,
+    freeMode: false,
     speed: 400,
   };
 
