@@ -9,7 +9,8 @@ export interface Thumbnail {
 
 export default class PostResource extends BaseResource {
   // static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts';
-  static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts?fields=*.*&sort=-modified_on';
+  static urlRoot =
+    'https://ymun-app.caseychow.org/_/items/posts?fields=*.*&sort=modified_on';
 
   readonly id?: number;
 
@@ -34,17 +35,16 @@ export default class PostResource extends BaseResource {
   };
 
   readonly header_image: {
-      readonly data: {
-        readonly url: string;
-        readonly thumbnails: Thumbnail[];
-      } 
+    readonly data: {
+      readonly url: string;
+      readonly thumbnails: Thumbnail[];
+    };
   } = {
     data: {
       url: '',
       thumbnails: [] as Thumbnail[],
-    }
+    },
   };
-  
 
   readonly created_on?: string;
 
@@ -66,10 +66,10 @@ export default class PostResource extends BaseResource {
       if (this.pk(urlParams) !== undefined) {
         return `https://ymun-app.caseychow.org/_/items/posts/${this.pk(
           urlParams
-        )}?fields=*.*`;
+        )}?fields=*.*&sort=modified_on`;
       }
     }
-    return `https://ymun-app.caseychow.org/_/items/posts?fields=*.*`;
+    return `https://ymun-app.caseychow.org/_/items/posts?fields=*.*&sort=modified_on`;
   }
 
   pk(): number | undefined {
