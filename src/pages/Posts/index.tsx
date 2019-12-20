@@ -1,33 +1,19 @@
-import {
-  IonContent,
-  IonHeader,
-  IonList,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
-import React from 'react';
-import { useResource } from 'rest-hooks';
-import PostResource from '../../resources/post';
-import PostList from './PostList';
+import { IonPage } from '@ionic/react';
+import React, { Suspense } from 'react';
+import { NetworkErrorBoundary } from 'rest-hooks';
+import SuspenseFallback from '../../components/SuspenseFallback';
+import PostsInner from './PostsInner';
 
 const Posts: React.FC = () => {
-  const posts = useResource(PostResource.listShape(), {});
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Posts</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonList lines="full">
-          {posts.map((post) => (
-            <PostList key={post.id} post={post} />
-          ))}
-        </IonList>
-      </IonContent>
+      <NetworkErrorBoundary>
+        <Suspense fallback={<SuspenseFallback title="Posts" />}>
+          <PostsInner />
+        </Suspense>
+      </NetworkErrorBoundary>
     </IonPage>
   );
 };
+
 export default Posts;

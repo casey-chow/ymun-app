@@ -1,5 +1,5 @@
+import { IonSlide, IonSlides } from '@ionic/react';
 import React from 'react';
-import { IonSlides, IonSlide } from '@ionic/react';
 import { useResource } from 'rest-hooks';
 import PostDetail from '../PostDetail/index';
 import PostResource from '../../resources/post';

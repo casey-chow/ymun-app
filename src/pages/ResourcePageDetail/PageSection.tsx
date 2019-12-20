@@ -1,4 +1,10 @@
-import { IonIcon, IonItem, IonLabel, IonRippleEffect } from '@ionic/react';
+import {
+  IonIcon,
+  IonItem,
+  IonLabel,
+  IonRippleEffect,
+  isPlatform,
+} from '@ionic/react';
 import Interweave from 'interweave';
 import { arrowDropdown, arrowDropleft } from 'ionicons/icons';
 import React, { useCallback } from 'react';
@@ -27,12 +33,13 @@ const PageSection: React.FC<EventDetailProps> = ({
       onClick={memoizedOnClick}
       className="ion-activatable"
       button // needed for ripple: https://git.io/JeQM7
+      detail={false}
       lines="full"
     >
-      <IonRippleEffect />
+      {isPlatform('ios') || <IonRippleEffect />}
 
       <IonLabel className="ion-text-wrap">
-        <span>{section.title}</span>
+        <h2>{section.title}</h2>
         {expanded && <Interweave content={section.body} />}
       </IonLabel>
 

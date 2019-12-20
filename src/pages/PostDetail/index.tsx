@@ -1,20 +1,9 @@
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonBackButton,
-  IonButtons,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonImg,
-} from '@ionic/react';
-import React from 'react';
-import Interweave from 'interweave';
+import { IonPage } from '@ionic/react';
+import React, { Suspense } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { useResource } from 'rest-hooks';
-import PostResource from '../../resources/post';
+import { NetworkErrorBoundary } from 'rest-hooks';
+import SuspenseFallback from '../../components/SuspenseFallback';
+import PostDetailInner from './PostDetailInner';
 
 type PostDetailProps = RouteComponentProps<{
   id: string;
@@ -25,28 +14,15 @@ const PostDetail: React.FC<PostDetailProps> = ({
     params: { id },
   },
 }) => {
-  const post = useResource(PostResource.detailShape(), { id });
-
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/posts" text="Posts" />
-          </IonButtons>
-          <IonTitle>What's News?</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonCardTitle>{post.title}</IonCardTitle>
-        <IonCardSubtitle>
-          {post.created_by.first_name} {post.created_by.last_name}{' '}
-          {post.created_on}
-        </IonCardSubtitle>
-        <IonImg src={post.header_image.data.url} />
-        <Interweave content={post.body} />
-      </IonContent>
+      <NetworkErrorBoundary>
+        <Suspense fallback={<SuspenseFallback title="Press" />}>
+          <PostDetailInner id={id} />
+        </Suspense>
+      </NetworkErrorBoundary>
     </IonPage>
   );
 };
+
 export default PostDetail;
