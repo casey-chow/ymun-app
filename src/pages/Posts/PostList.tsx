@@ -4,6 +4,7 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonCardContent,
+  IonImg,
 } from '@ionic/react';
 import React from 'react';
 import Interweave from 'interweave';
@@ -37,6 +38,7 @@ const PostList: React.FC<PostListProps> = ({ post }) => {
         </IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent id="content">
+        <IonImg src={post.header_image.data.url}></IonImg>
         <Interweave content={createPreviewText(post.body)} />
       </IonCardContent>
     </IonCard>
