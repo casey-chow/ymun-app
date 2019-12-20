@@ -78,9 +78,9 @@ const App: React.FC = () => (
                 />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
-                <IonTabButton tab="posts" href="/press">
+                <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={time} />
-                  <IonLabel>Posts</IonLabel>
+                  <IonLabel>Press</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
