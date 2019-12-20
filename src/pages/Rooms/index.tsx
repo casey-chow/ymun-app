@@ -4,26 +4,29 @@ import {
   IonTitle,
   IonToolbar,
   IonContent,
-  IonText,
+  IonGrid,
+  IonRow,
+  IonCol,
 } from '@ionic/react';
 import React from 'react';
-
 import Locations from './Locations';
-import Maps from './Maps';
 
 const Rooms: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Room Assignments</IonTitle>
+          <IonTitle>Getting Around</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonText>Maps</IonText>
-        <Maps />
-        <IonText>Locations</IonText>
-        <Locations />
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <Locations />
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
