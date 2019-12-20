@@ -26,8 +26,10 @@ export default class PostResource extends BaseResource {
     readonly theme?: string | null;
   } = {
     id: 0,
+    /* eslint-disable @typescript-eslint/camelcase */
     first_name: '',
     last_name: '',
+    /* eslint-enable @typescript-eslint/camelcase */
     avatar: '',
     faSecret: '',
     role: 0,
