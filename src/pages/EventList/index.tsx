@@ -70,8 +70,9 @@ const EventList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
+        <IonToolbar></IonToolbar>
         <IonToolbar>
-          <IonTitle>Schedule</IonTitle>
+          <IonTitle size="large">Schedule</IonTitle>
           <IonButtons slot="primary">
             <IonSelect
               value={currentDay}

@@ -37,12 +37,14 @@ const ResourceCategoryDetail: React.FC<ResourceCategoryDetailProps> = ({
 
   return (
     <IonPage>
-      <IonHeader>
+      <IonHeader collapse="condense">
         <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref="/resources" text="Resources" />
           </IonButtons>
-          <IonTitle>{category.name}</IonTitle>
+        </IonToolbar>
+        <IonToolbar>
+          <IonTitle size="large">{category.name}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>

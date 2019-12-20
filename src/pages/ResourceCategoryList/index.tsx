@@ -30,8 +30,9 @@ const ResourceCategoryList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
+        <IonToolbar></IonToolbar>
         <IonToolbar>
-          <IonTitle>Resources</IonTitle>
+          <IonTitle size="large">Resources</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
