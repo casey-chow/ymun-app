@@ -40,12 +40,16 @@ const ResourcePageDetail: React.FC<ResourcePageDetailProps> = ({
           <IonButtons slot="start">
             <IonBackButton defaultHref={`/resources/${page.category}`} />
           </IonButtons>
-        </IonToolbar>
-        <IonToolbar>
-          <IonTitle size="large">{page.title}</IonTitle>
+          <IonTitle>{page.title}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">{page.title}</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+
         <IonGrid>
           <IonRow>
             <IonCol>

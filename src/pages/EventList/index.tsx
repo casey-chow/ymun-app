@@ -23,30 +23,6 @@ const EventList: React.FC = () => {
   const events = useResource(EventResource.listShape(), {});
   useRetrieve(LocationResource.listShape(), {});
 
-  // const evt1 = new EventResource();
-
-  // Object.assign(evt1, {
-  //   id: 1,
-  //   status: 'published',
-  //   title: 'Delegate Dance',
-  //   description: "<p>Don't forget to bring your clothes!<br></p>",
-  //   start_time: '2020-01-05 14:30:00',
-  //   end_time: '2020-01-05 15:30:00',
-  //   location: 1,
-  // });
-
-  // const evt2 = new EventResource();
-  // Object.assign(evt2, {
-  //   id: 2,
-  //   status: 'published',
-  //   title: 'Post Dance Postgame',
-  //   description: '<p>Hehehehehhehe</p>',
-  //   start_time: '2020-01-05 15:30:00',
-  //   end_time: '2020-01-05 19:30:00',
-  // });
-
-  // const events = [evt2, evt1];
-
   const eventsByDay = groupBy(events, (event) =>
     dayjs(event.start_time).format(dateFormat)
   );
@@ -70,9 +46,7 @@ const EventList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar></IonToolbar>
         <IonToolbar>
-          <IonTitle size="large">Schedule</IonTitle>
           <IonButtons slot="primary">
             <IonSelect
               value={currentDay}
@@ -84,9 +58,16 @@ const EventList: React.FC = () => {
               ))}
             </IonSelect>
           </IonButtons>
+          <IonTitle>Schedule</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Schedule</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+
         <IonList lines="full">
           {eventsSorted.map((event) => (
             <EventsListItem

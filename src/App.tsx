@@ -22,14 +22,12 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { book, calendar, time } from 'ionicons/icons';
+import { book, calendar, home, time, map } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
-import Posts from './pages/Posts';
-import Rooms from './pages/Rooms';
 import Home from './pages/Home';
 import PostDetail from './pages/PostDetail';
 import Posts from './pages/Posts';
@@ -37,6 +35,7 @@ import Press from './pages/PressHome/index';
 import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import ResourcePageDetail from './pages/ResourcePageDetail/index';
+import Rooms from './pages/Rooms';
 /* Theme variables */
 import './theme/variables.css';
 

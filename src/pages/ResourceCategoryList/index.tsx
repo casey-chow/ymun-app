@@ -30,12 +30,16 @@ const ResourceCategoryList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar></IonToolbar>
         <IonToolbar>
-          <IonTitle size="large">Resources</IonTitle>
+          <IonTitle>Resources</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Resources</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <IonGrid>
           <IonRow>
             {resourceCategories.map((category) => (

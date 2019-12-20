@@ -62,6 +62,11 @@ const Press: React.FC<PostListProps> = () => {
       </IonHeader>
       {/* <h4 className="centered wrap-text">Testing text overlay</h4> */}
       <IonContent>
+        <IonHeader collapse="condense">
+          <IonToolbar>
+            <IonTitle size="large">Press</IonTitle>
+          </IonToolbar>
+        </IonHeader>
         <IonImg
           className="image"
           src={`${process.env.PUBLIC_URL}/assets/press.png`}
