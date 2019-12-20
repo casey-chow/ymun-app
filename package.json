@@ -15,13 +15,14 @@
     "interweave": "^12.1.1",
     "ionicons": "^4.6.3",
     "lodash": "^4.17.15",
-    "react": "^16.10.2",
+    "react": "^16.12.0",
     "react-dom": "^16.10.2",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
-    "react-scripts": "3.2.0",
+    "react-scripts": "^3.3.0",
     "rest-hooks": "^3.0.0",
-    "typescript": "3.6.3"
+    "typescript": "3.6.3",
+    "webpack": "^4.41.2"
   },
   "scripts": {
     "start": "react-scripts start",

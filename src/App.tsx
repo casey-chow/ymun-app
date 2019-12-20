@@ -30,9 +30,11 @@ import Details from './pages/Details';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Posts from './pages/Posts';
+import PostDetail from './pages/PostDetail';
 import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import ResourcePageDetail from './pages/ResourcePageDetail/index';
+import Press from './pages/PressHome/index';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -47,7 +49,9 @@ const App: React.FC = () => (
           <IonReactRouter>
             <IonTabs>
               <IonRouterOutlet>
+                <Route path="/press" component={Press} exact />
                 <Route path="/posts" component={Posts} exact />
+                <Route path="/posts/:id" component={PostDetail} />
                 <Route path="/events" component={EventList} exact />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route
@@ -69,14 +73,14 @@ const App: React.FC = () => (
                 <Route path="/tab3" component={Tab3} />
                 <Route
                   path="/"
-                  render={() => <Redirect to="/posts" />}
+                  render={() => <Redirect to="/press" />}
                   exact={true}
                 />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
-                <IonTabButton tab="posts" href="/posts">
+                <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={time} />
-                  <IonLabel>Posts</IonLabel>
+                  <IonLabel>Press</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
