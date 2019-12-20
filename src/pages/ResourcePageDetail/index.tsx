@@ -21,28 +21,27 @@ import ResourcePageResource from '../../resources/resourcePage';
 import PageSection from './PageSection';
 
 type ResourcePageDetailProps = RouteComponentProps<{
-  categoryId: string;
-  pageId: string;
+  id: string;
 }>;
 
 const ResourcePageDetail: React.FC<ResourcePageDetailProps> = ({
   match: {
-    params: { categoryId, pageId },
+    params: { id },
   },
 }) => {
-  const page = useResource(ResourcePageResource.detailShape(), {
-    id: pageId,
-  });
+  const page = useResource(ResourcePageResource.detailShape(), { id });
 
   const [expandedKey, setExpandedKey] = useState<string | undefined>();
 
   return (
     <IonPage>
-      <IonHeader collapse="condense">
+      <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref={`/resources/${categoryId}`} />
+            <IonBackButton defaultHref={`/resources/${page.category}`} />
           </IonButtons>
+        </IonToolbar>
+        <IonToolbar>
           <IonTitle size="large">{page.title}</IonTitle>
         </IonToolbar>
       </IonHeader>

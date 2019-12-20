@@ -64,7 +64,7 @@ const ResourceCategoryDetail: React.FC<ResourceCategoryDetailProps> = ({
             <IonItem
               key={page.id}
               lines="full"
-              routerLink={`/resources/${id}/pages/${page.id}`}
+              routerLink={`/pages/${page.id}`}
             >
               <IonLabel>{page.title}</IonLabel>
             </IonItem>

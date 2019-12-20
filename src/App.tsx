@@ -50,18 +50,15 @@ const App: React.FC = () => (
                 <Route path="/posts/:id" component={PostDetail} />
                 <Route path="/events" component={EventList} exact />
                 <Route path="/events/:id" component={EventDetail} />
+                <Route path="/pages/:id" component={ResourcePageDetail} />
+                <Route
+                  path="/resources/:id"
+                  component={ResourceCategoryDetail}
+                />
                 <Route
                   path="/resources"
                   component={ResourceCategoryList}
                   exact
-                />
-                <Route
-                  path="/resources/:categoryId/pages/:pageId"
-                  component={ResourcePageDetail}
-                />
-                <Route
-                  path="/resources/:id"
-                  component={ResourceCategoryDetail}
                 />
                 <Route
                   path="/"
