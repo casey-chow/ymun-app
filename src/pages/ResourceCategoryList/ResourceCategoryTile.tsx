@@ -14,7 +14,7 @@ const ResourceCategoryTile: React.FC<ResourceCategoryTileProps> = ({
   const icon = useCache(FileResource.detailShape(), { id: category.icon });
 
   return (
-    <IonCard routerLink={`/resources/${category.id}`}>
+    <IonCard routerLink={`/resources/${category.id}`} button class="expand">
       {/* div is necessary to prevent rendering error with react + web components */}
       <div>{icon && <IonImg src={icon.data.url} />}</div>
       <IonCardHeader>{category.name}</IonCardHeader>

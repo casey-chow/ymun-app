@@ -14,5 +14,7 @@ export default class ResourcePageResource extends BaseResource {
 
   readonly body?: string;
 
+  readonly category: number = 0;
+
   readonly sections?: Section[];
 }

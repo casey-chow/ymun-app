@@ -14,6 +14,8 @@ import FileResource from '../../resources/file';
 import ResourceCategoryResource from '../../resources/resourceCategory';
 import ResourceCategoryTile from './ResourceCategoryTile';
 
+import './resources.css';
+
 const ResourceCategoryList: React.FC = () => {
   const resourceCategories = useResource(
     ResourceCategoryResource.listShape(),
@@ -28,15 +30,16 @@ const ResourceCategoryList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
+        <IonToolbar></IonToolbar>
         <IonToolbar>
-          <IonTitle>Resources</IonTitle>
+          <IonTitle size="large">Resources</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonGrid>
           <IonRow>
             {resourceCategories.map((category) => (
-              <IonCol key={category.id} size="6">
+              <IonCol key={category.id} size="6" class="resource-column">
                 <ResourceCategoryTile category={category} />
               </IonCol>
             ))}

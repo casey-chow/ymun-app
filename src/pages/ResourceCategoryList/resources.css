@@ -1,0 +1,14 @@
+ion-card.expand {
+    height: calc(100% - 48px);
+    width: calc(100% - 32px);
+    margin-bottom: 24px;
+}
+
+ion-col.resource-column {
+    margin-bottom: -18px;
+}
+
+ion-col.resource-column:nth-child(even) {
+    padding-right: 0;
+    margin-left: -0.5em;
+}

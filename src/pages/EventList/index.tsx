@@ -17,7 +17,7 @@ import EventResource from '../../resources/event';
 import LocationResource from '../../resources/location';
 import EventsListItem from './EventListItem';
 
-const dateFormat = 'dddd, MMMM D';
+const dateFormat = 'dddd, MMM D';
 
 const EventList: React.FC = () => {
   const events = useResource(EventResource.listShape(), {});
@@ -70,8 +70,9 @@ const EventList: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
+        <IonToolbar></IonToolbar>
         <IonToolbar>
-          <IonTitle>Schedule</IonTitle>
+          <IonTitle size="large">Schedule</IonTitle>
           <IonButtons slot="primary">
             <IonSelect
               value={currentDay}
