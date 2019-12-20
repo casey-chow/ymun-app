@@ -1,0 +1,30 @@
+.textbox {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cardbox {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.cardbox img {
+    width: 106.5px !important;
+    height: 80.5px !important;
+    max-width: 50%;
+    max-height: 50%;
+    align-self: center;
+}
+
+.buttonRight {
+    right: 100%;
+}
+
+.textboxwrapper {
+    text-overflow: unset !important;
+    overflow: visible !important;
+    white-space: unset !important;
+}

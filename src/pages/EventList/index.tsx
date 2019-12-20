@@ -62,9 +62,10 @@ const EventList: React.FC = () => {
     }
   })();
 
-  // TODO: Set the initial day based on current day.
   const [currentDay, setCurrentDay] = useState(initialDay);
   const eventsSorted = sortBy(eventsByDay[currentDay], ['start_time']);
+
+  const [expandedKey, setExpandedKey] = useState<number | undefined>();
 
   return (
     <IonPage>
@@ -87,7 +88,19 @@ const EventList: React.FC = () => {
       <IonContent>
         <IonList lines="full">
           {eventsSorted.map((event) => (
-            <EventsListItem key={event.id} event={event} />
+            <EventsListItem
+              key={event.id}
+              event={event}
+              expanded={expandedKey === event.id}
+              onClick={(expanded) => {
+                // toggle expanded state
+                if (expanded) {
+                  setExpandedKey(undefined);
+                } else {
+                  setExpandedKey(event.id);
+                }
+              }}
+            />
           ))}
         </IonList>
       </IonContent>
