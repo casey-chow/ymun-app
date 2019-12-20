@@ -28,6 +28,9 @@ import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
+import Posts from './pages/Posts';
+import Rooms from './pages/Rooms';
+import Home from './pages/Home';
 import PostDetail from './pages/PostDetail';
 import Posts from './pages/Posts';
 import Press from './pages/PressHome/index';
@@ -45,10 +48,11 @@ const App: React.FC = () => (
           <IonReactRouter>
             <IonTabs>
               <IonRouterOutlet>
-                <Route path="/press" component={Press} exact />
-                <Route path="/posts" component={Posts} exact />
+                <Route path="/press" component={Press} exact={true} />
+                <Route path="/rooms" component={Rooms} exact={true} />
+                <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
-                <Route path="/events" component={EventList} exact />
+                <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route path="/pages/:id" component={ResourcePageDetail} />
                 <Route
@@ -58,11 +62,12 @@ const App: React.FC = () => (
                 <Route
                   path="/resources"
                   component={ResourceCategoryList}
-                  exact
+                  exact={true}
                 />
+                <Route path="/home" component={Home} exact={true} />
                 <Route
                   path="/"
-                  render={() => <Redirect to="/press" />}
+                  render={() => <Redirect to="/home" />}
                   exact={true}
                 />
               </IonRouterOutlet>
@@ -70,6 +75,14 @@ const App: React.FC = () => (
                 <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={time} />
                   <IonLabel>Press</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="rooms" href="/rooms">
+                  <IonIcon icon={map} />
+                  <IonLabel>Rooms</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="Home" href="/home">
+                  <IonIcon icon={home} />
+                  <IonLabel>Home</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
@@ -87,4 +100,5 @@ const App: React.FC = () => (
     </IonApp>
   </CacheProvider>
 );
+
 export default App;

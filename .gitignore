@@ -4,6 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+package-lock.json
+Podfile.lock 
+Manifest.lock 
+/ios/App
+/ios/capacitor-cordova-ios-plugins/
 
 # testing
 /coverage
