@@ -14,7 +14,7 @@ export default class GalleryResource extends BaseResource {
 
   readonly filename: string = '';
 
-  readonly caption: string = '';
+  readonly caption?: string = '';
 
   readonly photo: {
     readonly data: {
