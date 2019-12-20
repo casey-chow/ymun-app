@@ -1,9 +1,15 @@
 import { AbstractInstanceType } from 'rest-hooks/lib/types';
 import BaseResource from './base';
 
+export interface Thumbnail {
+  readonly url: string;
+  readonly width: number;
+  readonly height: number;
+}
+
 export default class PostResource extends BaseResource {
   // static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts';
-  static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts?fields=*.*';
+  static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts?fields=*.*&sort=-modified_on';
 
   readonly id?: number;
 
@@ -26,6 +32,19 @@ export default class PostResource extends BaseResource {
     role: 0,
     theme: '',
   };
+
+  readonly header_image: {
+      readonly data: {
+        readonly url: string;
+        readonly thumbnails: Thumbnail[];
+      } 
+  } = {
+    data: {
+      url: '',
+      thumbnails: [] as Thumbnail[],
+    }
+  };
+  
 
   readonly created_on?: string;
 
