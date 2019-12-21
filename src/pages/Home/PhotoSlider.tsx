@@ -8,6 +8,7 @@ const slideOpts = {
   initialSlide: 0,
   speed: 400,
   spaceBetween: 0,
+  freeMode: false,
   autoplay: true,
 };
 

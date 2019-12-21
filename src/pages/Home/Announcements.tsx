@@ -7,6 +7,7 @@ import TextResource from '../../resources/announcement';
 const slideOpts = {
   initialSlide: 0,
   speed: 400,
+  freeMode: false,
   spaceBetween: 0,
 };
 
