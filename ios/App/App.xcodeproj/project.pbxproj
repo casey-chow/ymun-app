@@ -382,7 +382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.caseychow.ymunapp;
 				PRODUCT_NAME = "Y-MUN";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = USE_PUSH;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
