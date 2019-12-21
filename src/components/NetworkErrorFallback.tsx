@@ -1,12 +1,14 @@
 import {
+  IonButton,
   IonContent,
+  IonFooter,
   IonGrid,
   IonHeader,
   IonRow,
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { NetworkError } from 'rest-hooks';
 import UDHR from './UDHR';
 
@@ -19,6 +21,10 @@ const NetworkErrorFallback: React.FC<NetworkErrorFallbackProps> = ({
   error,
   title = 'Network Error',
 }) => {
+  const invalidate = useCallback(() => {
+    window.location.reload();
+  }, []);
+
   return (
     <>
       <IonHeader>
@@ -38,8 +44,14 @@ const NetworkErrorFallback: React.FC<NetworkErrorFallbackProps> = ({
             <p>
               It happens to the best of us, and sometimes the Wi-Fi at
               conference isn't great. Unfortunately, we weren't able to retrieve
-              the information you wanted. We encountered error {error.status},{' '}
-              {error.response && error.response.statusText}.
+              the information you wanted.
+              {error.response && (
+                <span>
+                  {' '}
+                  We encountered error {error.status},{' '}
+                  {error.response && error.response.statusText}.
+                </span>
+              )}
             </p>
             <p>
               That said, we don't want to leave you empty-handed. So here's the
@@ -49,6 +61,18 @@ const NetworkErrorFallback: React.FC<NetworkErrorFallbackProps> = ({
           </IonRow>
         </IonGrid>
       </IonContent>
+      <IonFooter>
+        <IonToolbar>
+          <IonButton
+            expand="block"
+            fill="solid"
+            color="primary"
+            onClick={() => invalidate()}
+          >
+            Retry
+          </IonButton>
+        </IonToolbar>
+      </IonFooter>
     </>
   );
 };
