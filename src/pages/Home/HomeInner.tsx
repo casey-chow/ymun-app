@@ -1,22 +1,21 @@
-import React from 'react';
 import {
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonImg,
+  IonButton,
+  IonCol,
   IonContent,
   IonGrid,
+  IonHeader,
+  IonImg,
   IonRow,
-  IonCol,
-  IonButton,
+  IonTitle,
+  IonToolbar,
   isPlatform,
 } from '@ionic/react';
-import PhotoSlider from './PhotoSlider';
+import React from 'react';
 import Announcements from './Announcements';
-import UpNextTime from './UpNextTime';
-import UpNextEvent from './UpNextEvent';
 import News from './News';
+import PhotoSlider from './PhotoSlider';
+import UpNextEvent from './UpNextEvent';
+import UpNextTime from './UpNextTime';
 
 const styles = {
   logo: {
@@ -61,7 +60,7 @@ const styles = {
 
 const HomeInner: React.FC = () => {
   return (
-    <IonPage>
+    <>
       <IonHeader>
         <IonToolbar>
           <IonImg
@@ -153,7 +152,7 @@ const HomeInner: React.FC = () => {
           </IonRow>
         </IonGrid>
       </IonContent>
-    </IonPage>
+    </>
   );
 };
 
