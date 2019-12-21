@@ -12,4 +12,6 @@ export default class ResourceCategoryResource extends BaseResource {
   readonly description?: string;
 
   readonly pages: number[] = [];
+
+  readonly clickthrough_url?: string;
 }
