@@ -66,22 +66,22 @@ const App: React.FC = () => (
                 <Route path="/home" component={Home} exact={true} />
                 <Route
                   path="/"
-                  render={() => <Redirect to="/home" />}
+                  render={() => <Redirect to="/press" />}
                   exact={true}
                 />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
-                <IonTabButton tab="Press" href="/press">
-                  <IonIcon icon={time} />
-                  <IonLabel>Press</IonLabel>
+                <IonTabButton tab="Home" href="/home">
+                  <IonIcon icon={home} />
+                  <IonLabel>Posts</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="rooms" href="/rooms">
                   <IonIcon icon={map} />
                   <IonLabel>Rooms</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="Home" href="/home">
-                  <IonIcon icon={home} />
-                  <IonLabel>Home</IonLabel>
+                <IonTabButton tab="Press" href="/press">
+                  <IonIcon icon={time} />
+                  <IonLabel>Press</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
