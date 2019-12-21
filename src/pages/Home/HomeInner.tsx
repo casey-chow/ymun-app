@@ -129,7 +129,7 @@ const HomeInner: React.FC = () => {
                 style={
                   isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
                 }
-              ></IonTitle>
+              />
             </IonCol>
           </IonRow>
           <IonRow>
