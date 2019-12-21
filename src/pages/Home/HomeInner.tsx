@@ -129,9 +129,7 @@ const HomeInner: React.FC = () => {
                 style={
                   isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
                 }
-              >
-                News
-              </IonTitle>
+              ></IonTitle>
             </IonCol>
           </IonRow>
           <IonRow>
