@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { NetworkErrorBoundary } from 'rest-hooks';
 import SuspenseFallback from '../../components/SuspenseFallback';
+import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import PostDetailInner from './PostDetailInner';
 
 type PostDetailProps = RouteComponentProps<{
@@ -16,7 +17,7 @@ const PostDetail: React.FC<PostDetailProps> = ({
 }) => {
   return (
     <IonPage>
-      <NetworkErrorBoundary>
+      <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
         <Suspense fallback={<SuspenseFallback title="Press" />}>
           <PostDetailInner id={id} />
         </Suspense>

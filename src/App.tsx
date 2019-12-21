@@ -3,7 +3,6 @@ import {
   IonIcon,
   IonLabel,
   IonRouterOutlet,
-  IonSpinner,
   IonTabBar,
   IonTabButton,
   IonTabs,
@@ -22,10 +21,12 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { book, calendar, home, time, map } from 'ionicons/icons';
+import { book, calendar, home, map, time } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
+import NetworkErrorFallback from './components/NetworkErrorFallback';
+import SuspenseFallback from './components/SuspenseFallback';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Home from './pages/Home';
@@ -42,8 +43,8 @@ import './theme/variables.css';
 const App: React.FC = () => (
   <CacheProvider>
     <IonApp>
-      <Suspense fallback={<IonSpinner />}>
-        <NetworkErrorBoundary>
+      <Suspense fallback={<SuspenseFallback />}>
+        <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
           <IonReactRouter>
             <IonTabs>
               <IonRouterOutlet>
