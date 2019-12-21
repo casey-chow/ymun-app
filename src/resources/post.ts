@@ -1,5 +1,6 @@
 import { AbstractInstanceType } from 'rest-hooks/lib/types';
 import BaseResource from './base';
+import FileResource from './file';
 
 export interface Thumbnail {
   readonly url: string;
@@ -36,17 +37,7 @@ export default class PostResource extends BaseResource {
     theme: '',
   };
 
-  readonly header_image?: {
-    readonly data: {
-      readonly url: string;
-      readonly thumbnails: Thumbnail[];
-    };
-  } = {
-    data: {
-      url: '',
-      thumbnails: [] as Thumbnail[],
-    },
-  };
+  readonly header_image?: FileResource;
 
   readonly created_on?: string;
 

@@ -84,7 +84,10 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
                     width: 'auto',
                   }}
                 >
-                  <img src={post.header_image.data.url} />
+                  <img
+                    src={post.header_image.data.url}
+                    alt={post.header_image.description}
+                  />
                 </div>
               </IonCol>
             </IonRow>

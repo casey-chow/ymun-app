@@ -13,6 +13,8 @@ export default class FileResource extends BaseResource {
 
   readonly filename: string = '';
 
+  readonly description: string = '';
+
   readonly data: {
     readonly url: string;
     readonly thumbnails: Thumbnail[];
