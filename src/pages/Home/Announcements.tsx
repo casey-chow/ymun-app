@@ -1,5 +1,7 @@
 import React from 'react';
 import { IonSlides, IonSlide, IonCard, IonCardContent } from '@ionic/react';
+import { useResource } from 'rest-hooks';
+import TextResource from '../../resources/announcement';
 
 // Optional parameters to pass to the swiper instance. See http://idangero.us/swiper/api/ for valid options.
 const slideOpts = {
@@ -21,30 +23,23 @@ const styles = {
  * @param key the index (id) of the announcement slide.
  * @returns JSX element representing an announcement slide.
  */
-const makeAnnouncement = (text: string, key: number): JSX.Element => {
+const makeAnnouncement = (body: string, id: number): JSX.Element => {
   return (
-    <IonSlide key={key}>
-      <IonCard color={'secondary'} key={key} style={styles.card}>
-        <IonCardContent>{text}</IonCardContent>
+    <IonSlide key={id}>
+      <IonCard color={'secondary'} key={id} style={styles.card}>
+        <IonCardContent>{body}</IonCardContent>
       </IonCard>
     </IonSlide>
   );
 };
 
 const Announcements: React.FC = () => {
-  // TODO: get the announcements from our backend.
-  const announcements = [
-    "I AIN'T WRITE A RESOLUTION BUT I STILL GET BUCKETS",
-    'LIBERATE YOURSELF FROM THE SHACKLES OF CIRCUMSTANCE',
-    'THE VIEW IS GREAT',
-    "AND ON THE 8TH DAY, GOD SAID 'LET THERE BE PIEVAN'",
-    "WHAT'S A KING TO A GOD? WHAT'S A GOD TO ALEX WOLKOMIR?",
-  ];
+  const announcements = useResource(TextResource.listShape(), {});
 
   return (
     <IonSlides pager={true} options={slideOpts}>
-      {announcements.map((announcement: string, i: number) => {
-        return makeAnnouncement(announcement, i);
+      {announcements.map((annoucement) => {
+        return makeAnnouncement(annoucement.body, annoucement.created_by.id);
       })}
     </IonSlides>
   );
