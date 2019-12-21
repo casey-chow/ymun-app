@@ -5,6 +5,7 @@ import { IonSlides, IonSlide, IonCard, IonCardContent } from '@ionic/react';
 const slideOpts = {
   initialSlide: 0,
   speed: 400,
+  freeMode: false,
   spaceBetween: 0,
 };
 
