@@ -38,7 +38,7 @@ import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import Rooms from './pages/Rooms';
 /* Theme variables */
 import './theme/variables.css';
-import PhotoSlider from './pages/Home/PhotoSlider';
+import Gallery from './pages/Gallery';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -49,7 +49,7 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
-                <Route path="/gallery" component={PhotoSlider} exact={true} />
+                <Route path="/gallery" component={Gallery} exact={true} />
                 <Route path="/rooms" component={Rooms} exact={true} />
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
@@ -73,7 +73,7 @@ const App: React.FC = () => (
                 />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
-                <IonTabButton tab="Home" href="/home">
+                <IonTabButton tab="Posts" href="/posts">
                   <IonIcon icon={time} />
                   <IonLabel>Posts</IonLabel>
                 </IonTabButton>
