@@ -68,7 +68,7 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
         <Interweave content={post.body} />
       </IonContent>
       <IonFooter>
-        <IonToolbar>
+        <IonToolbar style={{ height: 'auto' }}>
           <IonButtons slot="start">
             <IonButton size="small" onClick={makeUpvote} disabled={didUpvote}>
               <IonIcon slot="start" icon={thumbsUp} />
