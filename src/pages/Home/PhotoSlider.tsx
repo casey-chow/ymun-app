@@ -1,5 +1,7 @@
 import React from 'react';
 import { IonSlides, IonSlide, IonImg, IonButton } from '@ionic/react';
+import { useResource } from 'rest-hooks';
+import GalleryResource from '../../resources/gallery';
 
 // Optional parameters to pass to the swiper instance. See http://idangero.us/swiper/api/ for valid options.
 const slideOpts = {
@@ -50,19 +52,12 @@ const createSlide = (image: string, key: number): JSX.Element => {
 };
 
 const PhotoSlider: React.FC = () => {
-  // TODO: retrieve images from our backend.
-  const images = [
-    '/assets/2015.jpg',
-    '/assets/turnup.jpg',
-    '/assets/caucus.jpg',
-    '/assets/liberators.jpg',
-    '/assets/daboys.jpg',
-  ];
+  const gallery = useResource(GalleryResource.listShape(), {});
 
   return (
     <IonSlides pager={false} options={slideOpts}>
-      {images.map((image: string, i: number) => {
-        return createSlide(image, i);
+      {gallery.map((image) => {
+        return createSlide(image.photo.data.url, image.id);
       })}
     </IonSlides>
   );
