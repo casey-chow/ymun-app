@@ -7,12 +7,12 @@ import {
   IonGrid,
   IonHeader,
   IonImg,
-  IonItem,
-  IonLabel,
+  // IonItem,
+  // IonLabel,
   IonRow,
   IonSlide,
   IonSlides,
-  IonThumbnail,
+  // IonThumbnail,
   IonTitle,
   IonToolbar,
   isPlatform,
@@ -200,7 +200,7 @@ const PressHomeInner: React.FC = () => {
               </IonButton>
             </IonCol>
           </IonRow>
-          <IonRow>
+          {/* <IonRow>
             <IonCol>
               <IonTitle
                 style={
@@ -210,8 +210,8 @@ const PressHomeInner: React.FC = () => {
                 Decision 2020
               </IonTitle>
             </IonCol>
-          </IonRow>
-          <IonRow>
+          </IonRow> */}
+          {/* <IonRow>
             <IonCol>
               <IonItem style={{ paddingBottom: '20px' }} lines="none">
                 <IonThumbnail slot="start">
@@ -223,8 +223,8 @@ const PressHomeInner: React.FC = () => {
                 </IonLabel>
               </IonItem>
             </IonCol>
-          </IonRow>
-          <IonRow>
+          </IonRow> */}
+          {/* <IonRow>
             <IonCol>
               <IonButton
                 routerLink={`/decision`}
@@ -236,7 +236,7 @@ const PressHomeInner: React.FC = () => {
                 Read More
               </IonButton>
             </IonCol>
-          </IonRow>
+          </IonRow> */}
           <IonRow>
             <IonCol>
               <IonTitle
@@ -263,7 +263,7 @@ const PressHomeInner: React.FC = () => {
               </IonSlides>
             </IonCol>
           </IonRow>
-          <IonRow>
+          {/* <IonRow>
             <IonCol>
               <IonButton
                 routerLink={`/gallery`}
@@ -275,7 +275,7 @@ const PressHomeInner: React.FC = () => {
                 See More
               </IonButton>
             </IonCol>
-          </IonRow>
+          </IonRow> */}
         </IonGrid>
       </IonContent>
     </>
