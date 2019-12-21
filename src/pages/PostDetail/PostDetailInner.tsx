@@ -5,15 +5,14 @@ import {
   IonButtons,
   IonCardSubtitle,
   IonCardTitle,
+  IonCol,
   IonContent,
   IonFooter,
+  IonGrid,
   IonHeader,
   IonIcon,
-  IonTitle,
-  IonToolbar,
-  IonGrid,
   IonRow,
-  IonCol,
+  IonToolbar,
 } from '@ionic/react';
 import Interweave from 'interweave';
 import { thumbsUp } from 'ionicons/icons';
@@ -57,7 +56,6 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/posts" text="Posts" />
           </IonButtons>
-          <IonTitle>What's News?</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -75,20 +73,22 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
               </IonCardSubtitle>
             </IonCol>
           </IonRow>
-          <IonRow>
-            <IonCol>
-              <div
-                style={{
-                  maxHeight: '100%',
-                  maxWidth: '100%',
-                  height: 'auto',
-                  width: 'auto',
-                }}
-              >
-                <img src={post.header_image.data.url} />,
-              </div>
-            </IonCol>
-          </IonRow>
+          {post.header_image && (
+            <IonRow>
+              <IonCol>
+                <div
+                  style={{
+                    maxHeight: '100%',
+                    maxWidth: '100%',
+                    height: 'auto',
+                    width: 'auto',
+                  }}
+                >
+                  <img src={post.header_image.data.url} />
+                </div>
+              </IonCol>
+            </IonRow>
+          )}
           <IonRow>
             <IonCol>
               <Interweave content={post.body} />

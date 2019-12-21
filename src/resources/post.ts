@@ -36,7 +36,7 @@ export default class PostResource extends BaseResource {
     theme: '',
   };
 
-  readonly header_image: {
+  readonly header_image?: {
     readonly data: {
       readonly url: string;
       readonly thumbnails: Thumbnail[];

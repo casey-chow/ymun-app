@@ -164,15 +164,17 @@ const PressHomeInner: React.FC = () => {
                   >
                     <IonCard routerLink={`/posts/${post.id}`}>
                       <IonCardContent className="line-clamp">
-                        <IonImg
-                          style={
-                            isPlatform('ios')
-                              ? styles.iOSCardImg
-                              : styles.androidCardImg
-                          }
-                          alt=""
-                          src={post.header_image.data.thumbnails[6].url}
-                        />
+                        {post.header_image && (
+                          <IonImg
+                            style={
+                              isPlatform('ios')
+                                ? styles.iOSCardImg
+                                : styles.androidCardImg
+                            }
+                            alt=""
+                            src={post.header_image.data.thumbnails[6].url}
+                          />
+                        )}
                         <IonCardHeader>
                           <IonTitle>{post.title}</IonTitle>
                         </IonCardHeader>

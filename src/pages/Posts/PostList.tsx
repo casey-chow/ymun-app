@@ -45,7 +45,7 @@ const PostList: React.FC<PostListProps> = ({ post }) => {
         </IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent id="content">
-        <IonImg src={post.header_image.data.url}></IonImg>
+        {post.header_image && <IonImg src={post.header_image.data.url} />}
         <Interweave content={createPreviewText(post.body)} />
       </IonCardContent>
     </IonCard>
