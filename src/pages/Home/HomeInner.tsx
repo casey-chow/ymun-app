@@ -33,12 +33,12 @@ const styles = {
   },
   iOSButton: {
     width: 'auto',
-    height: '25px',
+    height: '45px',
     position: 'absolute',
     zIndex: '99',
-    bottom: '-5px',
+    bottom: '-15px',
     right: '20px',
-    paddingTop: '5px',
+    paddingTop: '10px',
     paddingBottom: '5px',
   },
   androidTitle: {
@@ -129,9 +129,7 @@ const HomeInner: React.FC = () => {
                 style={
                   isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
                 }
-              >
-                News
-              </IonTitle>
+              />
             </IonCol>
           </IonRow>
           <IonRow>

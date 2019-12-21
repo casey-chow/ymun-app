@@ -10,6 +10,8 @@ export default class GalleryResource extends BaseResource {
   static urlRoot =
     'https://ymun-app.caseychow.org/_/items/gallery_photos?fields=*.*&sort=-modified_on';
 
+  readonly id: number = 0;
+
   readonly type: string = '';
 
   readonly filename: string = '';
