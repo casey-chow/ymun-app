@@ -72,7 +72,7 @@ const App: React.FC = () => (
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
                 <IonTabButton tab="Home" href="/home">
-                  <IonIcon icon={home} />
+                  <IonIcon icon={time} />
                   <IonLabel>Posts</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="rooms" href="/rooms">
@@ -80,7 +80,7 @@ const App: React.FC = () => (
                   <IonLabel>Rooms</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="Press" href="/press">
-                  <IonIcon icon={time} />
+                  <IonIcon icon={home} />
                   <IonLabel>Press</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
