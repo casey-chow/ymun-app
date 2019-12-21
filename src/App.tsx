@@ -22,7 +22,7 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { book, calendar, home, time, map } from 'ionicons/icons';
+import { book, calendar, home, time } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
@@ -38,6 +38,7 @@ import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import Rooms from './pages/Rooms';
 /* Theme variables */
 import './theme/variables.css';
+import PhotoSlider from './pages/Home/PhotoSlider';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -48,6 +49,7 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
+                <Route path="/gallery" component={PhotoSlider} exact={true} />
                 <Route path="/rooms" component={Rooms} exact={true} />
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
@@ -75,10 +77,10 @@ const App: React.FC = () => (
                   <IonIcon icon={time} />
                   <IonLabel>Posts</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="rooms" href="/rooms">
+                {/* <IonTabButton tab="rooms" href="/rooms">
                   <IonIcon icon={map} />
                   <IonLabel>Rooms</IonLabel>
-                </IonTabButton>
+                </IonTabButton> */}
                 <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={home} />
                   <IonLabel>Press</IonLabel>
