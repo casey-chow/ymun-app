@@ -4,6 +4,8 @@ import {
   IonList,
   IonTitle,
   IonToolbar,
+  IonButtons,
+  IonBackButton,
 } from '@ionic/react';
 import React from 'react';
 import { useResource } from 'rest-hooks';
@@ -17,6 +19,9 @@ const PostsInner: React.FC = () => {
     <>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/press" text="Press" />
+          </IonButtons>
           <IonTitle>Posts</IonTitle>
         </IonToolbar>
       </IonHeader>
