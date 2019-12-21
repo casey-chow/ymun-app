@@ -2,6 +2,7 @@ import { IonPage } from '@ionic/react';
 import React, { Suspense } from 'react';
 import { RouteComponentProps } from 'react-router';
 import { NetworkErrorBoundary } from 'rest-hooks';
+import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import SuspenseFallback from '../../components/SuspenseFallback';
 import ResourcePageDetailInner from './ResourcePageDetailInner';
 
@@ -16,7 +17,7 @@ const ResourcePageDetail: React.FC<ResourcePageDetailProps> = ({
 }) => {
   return (
     <IonPage>
-      <NetworkErrorBoundary>
+      <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
         <Suspense fallback={<SuspenseFallback />}>
           <ResourcePageDetailInner id={id} />
         </Suspense>

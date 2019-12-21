@@ -46,7 +46,7 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
     ]);
 
     setDidUpvote(true);
-  }, [id]);
+  }, [upvoteFetcher, id]);
 
   return (
     <>
