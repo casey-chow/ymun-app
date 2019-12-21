@@ -37,7 +37,7 @@ const Announcements: React.FC = () => {
   const announcements = useResource(TextResource.listShape(), {});
 
   return (
-    <IonSlides pager={true} options={slideOpts}>
+    <IonSlides pager={false} options={slideOpts}>
       {announcements.map((annoucement) => {
         return makeAnnouncement(annoucement.body, annoucement.created_by.id);
       })}
