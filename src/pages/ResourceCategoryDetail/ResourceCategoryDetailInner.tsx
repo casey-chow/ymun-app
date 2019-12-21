@@ -10,7 +10,6 @@ import {
   IonLabel,
   IonList,
   IonRow,
-  IonTitle,
   IonToolbar,
 } from '@ionic/react';
 import Interweave from 'interweave';
@@ -38,18 +37,13 @@ const ResourceCategoryDetailInner: React.FC<ResourceCategoryDetailInnerProps> = 
           <IonButtons slot="start">
             <IonBackButton defaultHref="/resources" text="Resources" />
           </IonButtons>
-          <IonTitle>{category.name}</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{category.name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
         <IonGrid>
           <IonRow>
             <IonCol>
+              <h1>{category.name}</h1>
               <Interweave content={category.description}></Interweave>
             </IonCol>
           </IonRow>
