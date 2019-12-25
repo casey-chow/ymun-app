@@ -9,11 +9,21 @@ import {
   IonGrid,
   IonImg,
 } from '@ionic/react';
+import _ from 'lodash';
 import { useResource } from 'rest-hooks';
-import GalleryResource from '../../resources/gallery';
+import GalleryPhotosResource from '../../resources/galleryPhoto';
+import FileResource from '../../resources/file';
 
 const GalleryInner: React.FC = () => {
-  const gallery = useResource(GalleryResource.listShape(), {});
+  const galleryPhotos = useResource(GalleryPhotosResource.listShape(), {});
+
+  const files = useResource(FileResource.listShape(), {
+    'filter[id][in]': galleryPhotos
+      .map((x) => x.photo)
+      .filter((x) => !_.isNull(x))
+      .join(','),
+  });
+  const fileById = _.keyBy(files, 'id');
 
   return (
     <>
@@ -30,12 +40,15 @@ const GalleryInner: React.FC = () => {
         </IonHeader>
         <IonGrid>
           <IonRow>
-            {gallery.map((pic) => {
+            {galleryPhotos.map((pic) => {
+              const file = pic.id && fileById[pic.id];
+              if (!file) return null;
+
               return (
-                <IonCol key={pic.pk()}>
+                <IonCol key={pic.id}>
                   <IonImg
                     key={pic.pk()}
-                    src={pic.photo.data.url}
+                    src={file.data.url}
                     style={{
                       objectFit: 'cover',
                       justifyContent: 'center',

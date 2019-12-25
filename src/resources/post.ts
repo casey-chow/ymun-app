@@ -1,6 +1,4 @@
-import { AbstractInstanceType } from 'rest-hooks/lib/types';
 import BaseResource from './base';
-import FileResource from './file';
 
 export interface Thumbnail {
   readonly url: string;
@@ -9,35 +7,16 @@ export interface Thumbnail {
 }
 
 export default class PostResource extends BaseResource {
-  // static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts';
-  static urlRoot =
-    'https://ymun-app.caseychow.org/_/items/posts?fields=*.*&sort=modified_on';
+  static urlRoot = 'https://ymun-app.caseychow.org/_/items/posts';
 
   readonly id?: number;
 
   readonly status?: string;
 
-  readonly created_by: {
-    readonly id?: number | null;
-    readonly first_name?: string | null;
-    readonly last_name?: string | null;
-    readonly avatar?: string | null;
-    readonly faSecret?: string | null;
-    readonly role?: number | null;
-    readonly theme?: string | null;
-  } = {
-    id: 0,
-    /* eslint-disable @typescript-eslint/camelcase */
-    first_name: '',
-    last_name: '',
-    /* eslint-enable @typescript-eslint/camelcase */
-    avatar: '',
-    faSecret: '',
-    role: 0,
-    theme: '',
-  };
+  readonly created_by: number | null = null;
 
-  readonly header_image?: FileResource;
+  /** The id of a FileResource that serves as the header image. */
+  readonly header_image?: number | null = null;
 
   readonly created_on?: string;
 
@@ -50,22 +29,4 @@ export default class PostResource extends BaseResource {
   readonly author: string = '';
 
   readonly modified_by: number | null = null;
-
-  static url<T extends typeof BaseResource>(
-    this: T,
-    urlParams?: { id: string } & Partial<AbstractInstanceType<T>>
-  ): string {
-    if (urlParams) {
-      if (this.pk(urlParams) !== undefined) {
-        return `https://ymun-app.caseychow.org/_/items/posts/${this.pk(
-          urlParams
-        )}?fields=*.*&sort=modified_on`;
-      }
-    }
-    return `https://ymun-app.caseychow.org/_/items/posts?fields=*.*&sort=modified_on`;
-  }
-
-  pk(): number | undefined {
-    return this.id;
-  }
 }

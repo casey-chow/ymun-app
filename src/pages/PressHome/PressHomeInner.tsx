@@ -2,7 +2,9 @@ import {
   IonButton,
   IonCard,
   IonCardContent,
+  IonCardHeader,
   IonCardSubtitle,
+  IonCol,
   IonContent,
   IonGrid,
   IonHeader,
@@ -16,13 +18,14 @@ import {
   IonTitle,
   IonToolbar,
   isPlatform,
-  IonCol,
-  IonCardHeader,
 } from '@ionic/react';
+import _ from 'lodash';
 import React from 'react';
 import { useResource } from 'rest-hooks';
-import GalleryResource from '../../resources/gallery';
+import FileResource from '../../resources/file';
+import GalleryPhotosResource from '../../resources/galleryPhoto';
 import PostResource from '../../resources/post';
+import UserResource from '../../resources/user';
 import './press.css';
 
 const styles = {
@@ -66,6 +69,7 @@ const styles = {
     width: '106.5px !important',
     height: '80.5px !important',
     maxWidth: '50%',
+
     maxHeight: '50%',
     alignSelf: 'center',
   },
@@ -105,9 +109,30 @@ const PressHomeInner: React.FC = () => {
   //   };
   // const items: Item[] = [{ src: 'http://placekitten.com/g/200/300', text: 'a picture of a cat' }];
 
-  const posts = useResource(PostResource.listShape(), {});
+  const [posts, galleryPhotos] = useResource(
+    [PostResource.listShape(), {}],
+    [GalleryPhotosResource.listShape(), { sort: '-modified_on' }]
+  );
 
-  const gallery = useResource(GalleryResource.listShape(), {});
+  const fileIds = _.concat(
+    posts.map((post) => post.header_image),
+    galleryPhotos.map((x) => x.photo)
+  ).filter((x) => x);
+
+  const [authors, files] = useResource(
+    [
+      UserResource.listShape(),
+      {
+        'filter[id][in]': posts
+          .map((post) => post.created_by)
+          .filter(_.negate(_.isNull))
+          .join(','),
+      },
+    ],
+    [FileResource.listShape(), { 'filter[id][in]': fileIds }]
+  );
+  const authorById = _.keyBy(authors, 'id');
+  const filesById = _.keyBy(files, 'id');
 
   const slideOptsNews = {
     initialSlide: 1,
@@ -164,7 +189,7 @@ const PressHomeInner: React.FC = () => {
                   >
                     <IonCard routerLink={`/posts/${post.id}`}>
                       <IonCardContent className="line-clamp">
-                        {post.header_image && (
+                        {post.header_image && filesById[post.header_image] && (
                           <IonImg
                             style={
                               isPlatform('ios')
@@ -172,16 +197,21 @@ const PressHomeInner: React.FC = () => {
                                 : styles.androidCardImg
                             }
                             alt=""
-                            src={post.header_image.data.thumbnails[6].url}
+                            src={
+                              filesById[post.header_image].data.thumbnails[6]
+                                .url
+                            }
                           />
                         )}
                         <IonCardHeader>
                           <IonTitle>{post.title}</IonTitle>
                         </IonCardHeader>
-                        <IonCardSubtitle>
-                          {post.created_by.first_name}{' '}
-                          {post.created_by.last_name}
-                        </IonCardSubtitle>
+                        {post.created_by && authorById[post.created_by] && (
+                          <IonCardSubtitle>
+                            {authorById[post.created_by].first_name}{' '}
+                            {authorById[post.created_by].last_name}
+                          </IonCardSubtitle>
+                        )}
                       </IonCardContent>
                     </IonCard>
                   </IonSlide>
@@ -253,15 +283,21 @@ const PressHomeInner: React.FC = () => {
           <IonRow>
             <IonCol>
               <IonSlides pager={true} options={slideOptsGallery}>
-                {gallery.map((pic) => (
-                  <IonSlide key={pic.pk()}>
-                    <IonGrid>
-                      <IonRow>
-                        <IonImg style={styles.image} src={pic.photo.data.url} />
-                      </IonRow>
-                    </IonGrid>
-                  </IonSlide>
-                ))}
+                {galleryPhotos.map(
+                  (pic) =>
+                    pic.id && (
+                      <IonSlide key={pic.id}>
+                        <IonGrid>
+                          <IonRow>
+                            <IonImg
+                              style={styles.image}
+                              src={filesById[pic.id].data.url}
+                            />
+                          </IonRow>
+                        </IonGrid>
+                      </IonSlide>
+                    )
+                )}
               </IonSlides>
             </IonCol>
           </IonRow>

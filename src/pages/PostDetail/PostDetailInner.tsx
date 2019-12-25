@@ -20,6 +20,8 @@ import React, { useCallback, useState } from 'react';
 import { useFetcher, useResource } from 'rest-hooks';
 import PostResource from '../../resources/post';
 import UpvoteResource from '../../resources/upvote';
+import UserResource from '../../resources/user';
+import FileResource from '../../resources/file';
 
 interface PostDetailInnerProps {
   id: string;
@@ -27,9 +29,11 @@ interface PostDetailInnerProps {
 
 const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
   const post = useResource(PostResource.detailShape(), { id });
-  const upvotes = useResource(UpvoteResource.listShape(), {
-    'filter[post][=]': id,
-  });
+  const [upvotes, author, headerImage] = useResource(
+    [UpvoteResource.listShape(), { 'filter[post][=]': id }],
+    [UserResource.detailShape(), { id: post.created_by }],
+    [FileResource.detailShape(), { id: post.header_image }]
+  );
 
   const [didUpvote, setDidUpvote] = useState<boolean>(false);
 
@@ -68,12 +72,11 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
           <IonRow>
             <IonCol>
               <IonCardSubtitle>
-                {post.created_by.first_name} {post.created_by.last_name}{' '}
-                {post.created_on}
+                {author.first_name} {author.last_name} {post.created_on}
               </IonCardSubtitle>
             </IonCol>
           </IonRow>
-          {post.header_image && (
+          {headerImage && (
             <IonRow>
               <IonCol>
                 <div
@@ -85,8 +88,8 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
                   }}
                 >
                   <img
-                    src={post.header_image.data.url}
-                    alt={post.header_image.description}
+                    src={headerImage.data.url}
+                    alt={headerImage.description}
                   />
                 </div>
               </IonCol>
