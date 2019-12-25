@@ -115,8 +115,8 @@ const PressHomeInner: React.FC = () => {
   );
 
   const fileIds = _.concat(
-    posts.map((post) => post.header_image),
-    galleryPhotos.map((x) => x.photo)
+    posts.map((post) => post.header_image).filter((x) => !_.isNull(x)),
+    galleryPhotos.map((x) => x.photo).filter((x) => !_.isNull(x))
   ).filter((x) => x);
 
   const [authors, files] = useResource(
@@ -283,21 +283,21 @@ const PressHomeInner: React.FC = () => {
           <IonRow>
             <IonCol>
               <IonSlides pager={true} options={slideOptsGallery}>
-                {galleryPhotos.map(
-                  (pic) =>
-                    pic.id && (
-                      <IonSlide key={pic.id}>
-                        <IonGrid>
-                          <IonRow>
-                            <IonImg
-                              style={styles.image}
-                              src={filesById[pic.id].data.url}
-                            />
-                          </IonRow>
-                        </IonGrid>
-                      </IonSlide>
-                    )
-                )}
+                {galleryPhotos.map((galleryPhoto) => {
+                  const photo =
+                    galleryPhoto.photo && filesById[galleryPhoto.photo];
+                  if (!photo) return null;
+
+                  return (
+                    <IonSlide key={galleryPhoto.id}>
+                      <IonGrid>
+                        <IonRow>
+                          <IonImg style={styles.image} src={photo.data.url} />
+                        </IonRow>
+                      </IonGrid>
+                    </IonSlide>
+                  );
+                })}
               </IonSlides>
             </IonCol>
           </IonRow>
