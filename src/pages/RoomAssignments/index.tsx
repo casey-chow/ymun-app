@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import Locations from './Locations';
 
-const Rooms: React.FC = () => {
+const RoomAssignments: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -37,4 +37,4 @@ const Rooms: React.FC = () => {
   );
 };
 
-export default Rooms;
+export default RoomAssignments;
