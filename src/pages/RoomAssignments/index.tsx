@@ -1,15 +1,12 @@
 import {
+  IonContent,
   IonHeader,
   IonPage,
   IonTitle,
   IonToolbar,
-  IonContent,
-  IonGrid,
-  IonRow,
-  IonCol,
 } from '@ionic/react';
 import React from 'react';
-import Locations from './Locations';
+import LocationCard from './LocationCard';
 
 const RoomAssignments: React.FC = () => {
   return (
@@ -25,13 +22,10 @@ const RoomAssignments: React.FC = () => {
             <IonTitle size="large">Getting Around</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonGrid>
-          <IonRow>
-            <IonCol>
-              <Locations />
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+        <LocationCard title="Hershey Lodge Map" />
+        <LocationCard title="Committee Room Assignments" />
+        <LocationCard title="Country Caucus Room Assignments" />
+        <LocationCard title="Delegation Meeting Room Assignments" />
       </IonContent>
     </IonPage>
   );
