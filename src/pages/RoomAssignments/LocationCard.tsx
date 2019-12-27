@@ -22,14 +22,14 @@ const LocationCard: React.FC<LocationCardProps> = ({
     <IonCard routerLink={href}>
       <IonGrid>
         <IonRow>
-          <IonCol size="4" style={centerElementsVertically}>
+          <IonCol size="3" style={centerElementsVertically}>
             <IonImg
               src="/assets/map.png"
               alt={`Thumbnail of Map for ${title}`}
             />
           </IonCol>
           <IonCol style={centerElementsVertically}>
-            <h3 style={{ color: 'black', margin: '0' }}>{title}</h3>
+            <h4 style={{ color: 'black', margin: '0' }}>{title}</h4>
           </IonCol>
         </IonRow>
       </IonGrid>
