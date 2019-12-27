@@ -27,6 +27,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import NetworkErrorFallback from './components/NetworkErrorFallback';
 import SuspenseFallback from './components/SuspenseFallback';
+import CommitteeRoomAssignments from './pages/CommitteeRoomAssignments/index';
 import CountryCaucusRoomAssignments from './pages/CountryCaucusRoomAssignments';
 import DelegationMeetingRoomAssignments from './pages/DelegationMeetingRoomAssignments/index';
 import EventDetail from './pages/EventDetail';
@@ -54,14 +55,19 @@ const App: React.FC = () => (
                 <Route path="/press" component={Press} exact={true} />
                 <Route path="/gallery" component={Gallery} exact={true} />
                 <Route
+                  path="/rooms/committees"
+                  component={CommitteeRoomAssignments}
+                  exact
+                />
+                <Route
                   path="/rooms/country-caucus"
                   component={CountryCaucusRoomAssignments}
-                  exact={true}
+                  exact
                 />
                 <Route
                   path="/rooms/delegation-meetings"
                   component={DelegationMeetingRoomAssignments}
-                  exact={true}
+                  exact
                 />
                 <Route path="/rooms" component={RoomAssignments} exact={true} />
                 <Route path="/posts" component={Posts} exact={true} />
