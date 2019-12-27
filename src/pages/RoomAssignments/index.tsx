@@ -28,7 +28,10 @@ const RoomAssignments: React.FC = () => {
           title="Country Caucus Room Assignments"
           href="/rooms/country-caucus"
         />
-        <LocationCard title="Delegation Meeting Room Assignments" />
+        <LocationCard
+          title="Delegation Meeting Room Assignments"
+          href="/rooms/delegation-meetings"
+        />
       </IonContent>
     </IonPage>
   );

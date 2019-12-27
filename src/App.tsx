@@ -27,6 +27,8 @@ import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import NetworkErrorFallback from './components/NetworkErrorFallback';
 import SuspenseFallback from './components/SuspenseFallback';
+import CountryCaucusRoomAssignments from './pages/CountryCaucusRoomAssignments';
+import DelegationMeetingRoomAssignments from './pages/DelegationMeetingRoomAssignments/index';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Gallery from './pages/Gallery';
@@ -40,7 +42,6 @@ import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
-import CountryCaucusRoomAssignments from './pages/CountryCaucusRoomAssignments';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -55,6 +56,11 @@ const App: React.FC = () => (
                 <Route
                   path="/rooms/country-caucus"
                   component={CountryCaucusRoomAssignments}
+                  exact={true}
+                />
+                <Route
+                  path="/rooms/delegation-meetings"
+                  component={DelegationMeetingRoomAssignments}
                   exact={true}
                 />
                 <Route path="/rooms" component={RoomAssignments} exact={true} />

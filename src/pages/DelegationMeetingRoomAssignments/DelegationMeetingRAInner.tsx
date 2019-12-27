@@ -12,14 +12,16 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import _ from 'lodash';
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useResource, useRetrieve } from 'rest-hooks';
-import CountryResource from '../../resources/country';
+import DelegationResource from '../../resources/delegation';
 import LocationResource from '../../resources/location';
-import CountryItem from './CountryItem';
+import DelegationItem from './DelegationItem';
 
-const CountryCaucusRAInner: React.FC = () => {
-  const countries = useResource(CountryResource.listShape(), {});
+const DelegationMeetingRAInner: React.FC = () => {
+  const delegations = useResource(DelegationResource.listShape(), {
+    sort: 'name',
+  });
   useRetrieve(LocationResource.listShape(), {});
 
   const [searchbarText, setSearchbarText] = useState<string | null>(null);
@@ -32,15 +34,15 @@ const CountryCaucusRAInner: React.FC = () => {
     [setSearchbarText]
   );
 
-  const countriesByLetter: [string, CountryResource[]][] = useMemo(() => {
+  const delegationsByLetter: [string, DelegationResource[]][] = useMemo(() => {
     const filtered = searchbarText
-      ? countries.filter((x) => x.name.toLowerCase().includes(searchbarText))
-      : countries;
+      ? delegations.filter((x) => x.name.toLowerCase().includes(searchbarText))
+      : delegations;
     const grouped = _.groupBy(filtered, (x) => x.name[0].toUpperCase());
     const letters = _.keys(grouped).sort();
 
-    return letters.map((letter) => [letter, _.sortBy(grouped[letter], 'name')]);
-  }, [countries, searchbarText]);
+    return letters.map((letter) => [letter, grouped[letter]]);
+  }, [delegations, searchbarText]);
 
   return (
     <>
@@ -49,24 +51,24 @@ const CountryCaucusRAInner: React.FC = () => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/rooms" />
           </IonButtons>
-          <IonTitle>Country Caucus</IonTitle>
+          <IonTitle>Delegations</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Country Caucus</IonTitle>
+            <IonTitle size="large">Delegations</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonSearchbar animated={true} onIonInput={searchbarChanged} />
         <IonList lines="full">
-          {countriesByLetter.map(([letter, countriesForLetter]) => (
+          {delegationsByLetter.map(([letter, delegationsForLetter]) => (
             <IonItemGroup key={letter}>
               <IonItemDivider>
                 <IonLabel>{letter}</IonLabel>
               </IonItemDivider>
-              {countriesForLetter.map((country) => (
-                <CountryItem key={country.id} country={country} />
+              {delegationsForLetter.map((delegation) => (
+                <DelegationItem key={delegation.id} delegation={delegation} />
               ))}
             </IonItemGroup>
           ))}
@@ -76,4 +78,4 @@ const CountryCaucusRAInner: React.FC = () => {
   );
 };
 
-export default CountryCaucusRAInner;
+export default DelegationMeetingRAInner;
