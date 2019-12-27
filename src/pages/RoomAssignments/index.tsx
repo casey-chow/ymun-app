@@ -24,7 +24,10 @@ const RoomAssignments: React.FC = () => {
         </IonHeader>
         <LocationCard title="Hershey Lodge Map" />
         <LocationCard title="Committee Room Assignments" />
-        <LocationCard title="Country Caucus Room Assignments" />
+        <LocationCard
+          title="Country Caucus Room Assignments"
+          href="/rooms/country-caucus"
+        />
         <LocationCard title="Delegation Meeting Room Assignments" />
       </IonContent>
     </IonPage>

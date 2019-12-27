@@ -40,6 +40,7 @@ import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
+import CountryCaucusRoomAssignments from './pages/CountryCaucusRoomAssignments';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -51,6 +52,11 @@ const App: React.FC = () => (
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
                 <Route path="/gallery" component={Gallery} exact={true} />
+                <Route
+                  path="/rooms/country-caucus"
+                  component={CountryCaucusRoomAssignments}
+                  exact={true}
+                />
                 <Route path="/rooms" component={RoomAssignments} exact={true} />
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
