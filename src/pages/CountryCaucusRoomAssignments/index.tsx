@@ -9,7 +9,7 @@ const CountryCaucusRoomAssignments: React.FC = () => {
   return (
     <IonPage>
       <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
-        <Suspense fallback={<SuspenseFallback title="Schedule" />}>
+        <Suspense fallback={<SuspenseFallback title="Country Caucus" />}>
           <CountryCaucusRAInner />
         </Suspense>
       </NetworkErrorBoundary>

@@ -4,15 +4,13 @@ import { RouteComponentProps } from 'react-router';
 import { NetworkErrorBoundary } from 'rest-hooks';
 import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import SuspenseFallback from '../../components/SuspenseFallback';
-import MapDetailInner from './MapDetailInner';
+import LocationDetailInner from './LocationDetailInner';
 
-import './mapDetail.css';
-
-type MapDetailProps = RouteComponentProps<{
+type LocationDetailProps = RouteComponentProps<{
   id: string;
 }>;
 
-const MapDetail: React.FC<MapDetailProps> = ({
+const LocationDetail: React.FC<LocationDetailProps> = ({
   match: {
     params: { id },
   },
@@ -20,12 +18,14 @@ const MapDetail: React.FC<MapDetailProps> = ({
   return (
     <IonPage>
       <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
-        <Suspense fallback={<SuspenseFallback title="Map" collapse={false} />}>
-          <MapDetailInner id={id} />
+        <Suspense
+          fallback={<SuspenseFallback title="Location" collapse={false} />}
+        >
+          <LocationDetailInner id={id} />
         </Suspense>
       </NetworkErrorBoundary>
     </IonPage>
   );
 };
 
-export default MapDetail;
+export default LocationDetail;

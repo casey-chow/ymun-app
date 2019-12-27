@@ -44,6 +44,7 @@ import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
 import MapDetail from './pages/MapDetail/index';
+import LocationDetail from './pages/LocationDetail';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -71,6 +72,7 @@ const App: React.FC = () => (
                   exact
                 />
                 <Route path="/rooms" component={RoomAssignments} exact={true} />
+                <Route path="/locations/:id" component={LocationDetail} />
                 <Route path="/maps/:id" component={MapDetail} />
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />

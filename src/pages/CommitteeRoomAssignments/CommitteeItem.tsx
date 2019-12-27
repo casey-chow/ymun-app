@@ -14,7 +14,7 @@ const CommitteeItem: React.FC<CommitteeItemProps> = ({ committee }) => {
   });
 
   return (
-    <IonItem>
+    <IonItem routerLink={`/locations/${committee.location}`}>
       <IonLabel class="ion-text-wrap">{committee.name}</IonLabel>
       <IonNote class="ion-text-wrap">
         <small>{location && location.name}</small>

@@ -9,7 +9,7 @@ const CommitteeRoomAssignments: React.FC = () => {
   return (
     <IonPage>
       <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
-        <Suspense fallback={<SuspenseFallback title="Schedule" />}>
+        <Suspense fallback={<SuspenseFallback title="Committees" />}>
           <CommitteeRAInner />
         </Suspense>
       </NetworkErrorBoundary>
