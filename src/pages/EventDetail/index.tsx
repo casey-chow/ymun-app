@@ -18,6 +18,7 @@ import { locate, time } from 'ionicons/icons';
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { useResource } from 'rest-hooks';
+import Interweave from 'interweave';
 import EventResource from '../../resources/event';
 import FileResource from '../../resources/file';
 import LocationResource from '../../resources/location';
@@ -126,7 +127,7 @@ const EventDetail: React.FC<EventDetailProps> = ({
           )}
           <IonRow>
             <IonCol>
-              <div dangerouslySetInnerHTML={{ __html: event.description }} />
+              <Interweave content={event.description}></Interweave>
             </IonCol>
           </IonRow>
           {map && (
