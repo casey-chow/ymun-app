@@ -1,7 +1,9 @@
 import React from 'react';
 import { IonSlides, IonSlide, IonImg, IonButton } from '@ionic/react';
 import { useResource } from 'rest-hooks';
-import GalleryResource from '../../resources/gallery';
+import _ from 'lodash';
+import GalleryResource from '../../resources/galleryPhoto';
+import FileResource from '../../resources/file';
 
 // Optional parameters to pass to the swiper instance. See http://idangero.us/swiper/api/ for valid options.
 const slideOpts = {
@@ -53,12 +55,23 @@ const createSlide = (image: string, key: number): JSX.Element => {
 };
 
 const PhotoSlider: React.FC = () => {
-  const gallery = useResource(GalleryResource.listShape(), {});
+  const galleryPhotos = useResource(GalleryResource.listShape(), {});
+  const files = useResource(FileResource.listShape(), {
+    'filter[id][in]': galleryPhotos
+      .map((x) => x.photo)
+      .filter((x) => !_.isNull(x))
+      .join(','),
+  });
+  const fileById = _.keyBy(files, 'id');
 
   return (
     <IonSlides pager={false} options={slideOpts}>
-      {gallery.map((image) => {
-        return createSlide(image.photo.data.url, image.id);
+      {galleryPhotos.map((photo) => {
+        return (
+          photo.id &&
+          fileById[photo.id] &&
+          createSlide(fileById[photo.id].data.url, photo.id)
+        );
       })}
     </IonSlides>
   );

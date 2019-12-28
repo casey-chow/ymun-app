@@ -23,6 +23,7 @@
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.10.2",
+    "react-pinch-and-zoom": "^1.2.4",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
     "react-scripts": "^3.3.0",
