@@ -9,9 +9,13 @@ import React from 'react';
 
 export interface SuspenseFallbackProps {
   title?: string;
+  collapse?: boolean;
 }
 
-const SuspenseFallback: React.FC<SuspenseFallbackProps> = ({ title = '' }) => {
+const SuspenseFallback: React.FC<SuspenseFallbackProps> = ({
+  title = '',
+  collapse = true,
+}) => {
   return (
     <>
       <IonHeader>
@@ -20,11 +24,13 @@ const SuspenseFallback: React.FC<SuspenseFallbackProps> = ({ title = '' }) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{title}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+        {collapse && (
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">{title}</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+        )}
         <div
           style={{
             display: 'flex',

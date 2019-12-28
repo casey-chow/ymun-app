@@ -21,14 +21,18 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { book, calendar, home, time } from 'ionicons/icons';
+import { book, calendar, home, map, paper } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import NetworkErrorFallback from './components/NetworkErrorFallback';
 import SuspenseFallback from './components/SuspenseFallback';
+import CommitteeRoomAssignments from './pages/CommitteeRoomAssignments/index';
+import CountryCaucusRoomAssignments from './pages/CountryCaucusRoomAssignments';
+import DelegationMeetingRoomAssignments from './pages/DelegationMeetingRoomAssignments/index';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
+import Gallery from './pages/Gallery';
 import Home from './pages/Home';
 import PostDetail from './pages/PostDetail';
 import Posts from './pages/Posts';
@@ -36,10 +40,11 @@ import Press from './pages/PressHome/index';
 import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import ResourcePageDetail from './pages/ResourcePageDetail/index';
-import Rooms from './pages/Rooms';
+import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
-import Gallery from './pages/Gallery';
+import MapDetail from './pages/MapDetail/index';
+import LocationDetail from './pages/LocationDetail';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -51,7 +56,24 @@ const App: React.FC = () => (
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
                 <Route path="/gallery" component={Gallery} exact={true} />
-                <Route path="/rooms" component={Rooms} exact={true} />
+                <Route
+                  path="/rooms/committees"
+                  component={CommitteeRoomAssignments}
+                  exact
+                />
+                <Route
+                  path="/rooms/country-caucus"
+                  component={CountryCaucusRoomAssignments}
+                  exact
+                />
+                <Route
+                  path="/rooms/delegation-meetings"
+                  component={DelegationMeetingRoomAssignments}
+                  exact
+                />
+                <Route path="/rooms" component={RoomAssignments} exact={true} />
+                <Route path="/locations/:id" component={LocationDetail} />
+                <Route path="/maps/:id" component={MapDetail} />
                 <Route path="/posts" component={Posts} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
                 <Route path="/events" component={EventList} exact={true} />
@@ -75,13 +97,13 @@ const App: React.FC = () => (
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
                 <IonTabButton tab="Posts" href="/posts">
-                  <IonIcon icon={time} />
+                  <IonIcon icon={paper} />
                   <IonLabel>Posts</IonLabel>
                 </IonTabButton>
-                {/* <IonTabButton tab="rooms" href="/rooms">
+                <IonTabButton tab="rooms" href="/rooms">
                   <IonIcon icon={map} />
-                  <IonLabel>Rooms</IonLabel>
-                </IonTabButton> */}
+                  <IonLabel>Getting Around</IonLabel>
+                </IonTabButton>
                 <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={home} />
                   <IonLabel>Press</IonLabel>

@@ -11,6 +11,8 @@ import React from 'react';
 import { useResource } from 'rest-hooks';
 import PostResource from '../../resources/post';
 import UpvoteResource from '../../resources/upvote';
+import UserResource from '../../resources/user';
+import FileResource from '../../resources/file';
 
 interface PostListProps {
   readonly post: PostResource;
@@ -28,9 +30,11 @@ const PostList: React.FC<PostListProps> = ({ post }) => {
     }
   };
 
-  const upvotes = useResource(UpvoteResource.listShape(), {
-    'filter[post][=]': post.id,
-  });
+  const [upvotes, author, headerImage] = useResource(
+    [UpvoteResource.listShape(), { 'filter[post][=]': post.id }],
+    [UserResource.detailShape(), { id: post.created_by }],
+    [FileResource.detailShape(), { id: post.header_image }]
+  );
 
   return (
     // In order for redirect to properly work, you have to create an entirely new
@@ -39,13 +43,13 @@ const PostList: React.FC<PostListProps> = ({ post }) => {
       <IonCardHeader>
         <IonCardTitle>{post.title}</IonCardTitle>
         <IonCardSubtitle>
-          {post.created_by.first_name} {post.created_by.last_name}
+          {author.first_name} {author.last_name}
           {' | '}
           {post.created_on} | {upvotes.length} Likes
         </IonCardSubtitle>
       </IonCardHeader>
       <IonCardContent id="content">
-        {post.header_image && <IonImg src={post.header_image.data.url} />}
+        {headerImage && <IonImg src={headerImage.data.url} />}
         <Interweave content={createPreviewText(post.body)} />
       </IonCardContent>
     </IonCard>
