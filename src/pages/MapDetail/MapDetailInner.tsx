@@ -47,7 +47,10 @@ const MapDetailInner: React.FC<MapDetailInnerProps> = ({ id }) => {
             height: 100,
           }}
         >
-          <img src={attachment && attachment.data.url} />
+          <img
+            src={attachment && attachment.data.url}
+            alt={`map of ${map.name}`}
+          />
         </PinchToZoom>
       </IonContent>
     </>

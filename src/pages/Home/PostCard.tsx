@@ -21,7 +21,12 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
 
   return (
     <IonCard className="post-card">
-      {thumbnail && <img src={thumbnail.url} />}
+      {thumbnail && (
+        <img
+          src={thumbnail.url}
+          alt={`thumbnail for post titled ${post.title}`}
+        />
+      )}
       <IonCardContent>{post.title}</IonCardContent>
     </IonCard>
   );
