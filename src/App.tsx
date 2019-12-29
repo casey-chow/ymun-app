@@ -34,6 +34,8 @@ import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Gallery from './pages/Gallery';
 import Home from './pages/Home';
+import LocationDetail from './pages/LocationDetail';
+import MapDetail from './pages/MapDetail/index';
 import PostDetail from './pages/PostDetail';
 import Posts from './pages/Posts';
 import Press from './pages/PressHome/index';
@@ -43,8 +45,6 @@ import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
-import MapDetail from './pages/MapDetail/index';
-import LocationDetail from './pages/LocationDetail';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -91,7 +91,7 @@ const App: React.FC = () => (
                 <Route path="/home" component={Home} exact={true} />
                 <Route
                   path="/"
-                  render={() => <Redirect to="/press" />}
+                  render={() => <Redirect to="/home" />}
                   exact={true}
                 />
               </IonRouterOutlet>
@@ -106,7 +106,7 @@ const App: React.FC = () => (
                 </IonTabButton>
                 <IonTabButton tab="Press" href="/press">
                   <IonIcon icon={home} />
-                  <IonLabel>Press</IonLabel>
+                  <IonLabel>Home</IonLabel>
                 </IonTabButton>
                 <IonTabButton tab="events" href="/events">
                   <IonIcon icon={calendar} />
