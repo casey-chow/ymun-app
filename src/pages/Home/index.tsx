@@ -5,6 +5,8 @@ import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import SuspenseFallback from '../../components/SuspenseFallback';
 import HomeInner from './HomeInner';
 
+import './home.css';
+
 const Home: React.FC = () => {
   return (
     <IonPage>
