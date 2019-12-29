@@ -1,150 +1,51 @@
-import {
-  IonButton,
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonHeader,
-  IonImg,
-  IonRow,
-  IonTitle,
-  IonToolbar,
-  isPlatform,
-} from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonGrid, IonRow } from '@ionic/react';
 import React from 'react';
-import Announcements from './Announcements';
 import News from './News';
-import PhotoSlider from './PhotoSlider';
-import UpNextEvent from './UpNextEvent';
-import UpNextTime from './UpNextTime';
-
-const styles = {
-  logo: {
-    display: 'block',
-    maxWidth: '40px',
-    maxHeight: '40px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  iOSTitle: {
-    paddingTop: '25px',
-    width: 'auto',
-    marginLeft: '-64px',
-    textAlign: 'left',
-  },
-  iOSButton: {
-    width: 'auto',
-    height: '45px',
-    position: 'absolute',
-    zIndex: '99',
-    bottom: '-15px',
-    right: '20px',
-    paddingTop: '10px',
-    paddingBottom: '5px',
-  },
-  androidTitle: {
-    paddingTop: '25px',
-    width: 'auto',
-    textAlign: 'left',
-  },
-  androidButton: {
-    width: 'auto',
-    height: '25px',
-    position: 'absolute',
-    zIndex: '99',
-    bottom: '-20px',
-    right: '20px',
-    paddingTop: '5px',
-    paddingBottom: '5px',
-  },
-};
+import UpNext from './UpNext';
 
 const HomeInner: React.FC = () => {
   return (
     <>
-      <IonHeader>
-        <IonToolbar>
-          <IonImg
-            src="/assets/ymca-logo.png"
-            alt="ymca-logo"
-            style={styles.logo}
-          />
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+      <IonContent className="page-home">
         <IonGrid>
           <IonRow>
             <IonCol>
-              <PhotoSlider />
+              <h1 className="ion-text-center ion-text-uppercase">
+                YMCA Model United Nations
+              </h1>
+              <h2 className="ion-text-center">January 3-5</h2>
             </IonCol>
           </IonRow>
-          <IonRow>
+          {/* <IonRow>
             <IonCol>
-              <IonTitle
-                style={
-                  isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
-                }
-              >
-                Announcements
-              </IonTitle>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
+              <h1> Announcements </h1>
               <Announcements />
             </IonCol>
-          </IonRow>
+          </IonRow> */}
           <IonRow>
-            <IonCol>
-              <IonTitle
-                style={
-                  isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
-                }
-              >
-                Up Next
-              </IonTitle>
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
-              <UpNextTime />
+            <IonCol size="12">
+              <h1>Up Next</h1>
             </IonCol>
             <IonCol>
-              <UpNextEvent />
+              <UpNext />
               <IonButton
-                color={'primary'}
-                size={'small'}
-                fill={'outline'}
-                style={
-                  isPlatform('ios') ? styles.iOSButton : styles.androidButton
-                }
-                href={'/events'}
+                color="light"
+                fill="solid"
+                // style={
+                //   isPlatform('ios') ? styles.iOSButton : styles.androidButton
+                // }
+                href="/events"
               >
-                SCHEDULE
+                Schedule
               </IonButton>
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol>
-              <IonTitle
-                style={
-                  isPlatform('ios') ? styles.iOSTitle : styles.androidTitle
-                }
-              />
-            </IonCol>
-          </IonRow>
-          <IonRow>
-            <IonCol>
+              <h1>News</h1>
               <News />
-              <IonButton
-                color={'primary'}
-                size={'small'}
-                fill={'outline'}
-                style={
-                  isPlatform('ios') ? styles.iOSButton : styles.androidButton
-                }
-                href={'/posts'}
-              >
-                NEWS
+              <IonButton color="light" href="/posts">
+                News
               </IonButton>
             </IonCol>
           </IonRow>
