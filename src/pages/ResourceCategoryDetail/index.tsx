@@ -6,6 +6,8 @@ import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import SuspenseFallback from '../../components/SuspenseFallback';
 import ResourceCategoryDetailInner from './ResourceCategoryDetailInner';
 
+import './resourceCategoryDetail.css';
+
 type ResourceCategoryDetailProps = RouteComponentProps<{
   id: string;
 }>;

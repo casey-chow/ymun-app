@@ -37,7 +37,7 @@ const ResourceCategoryListInner: React.FC = () => {
             <IonTitle size="large">Resources</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonGrid>
+        <IonGrid className="category-grid">
           <IonRow>
             {resourceCategories.map((category) => (
               <IonCol key={category.id} size="6" class="resource-column">
