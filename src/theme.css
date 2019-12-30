@@ -157,6 +157,7 @@
 
 :root {
   --ion-headings-font-weight: 300;
+  --ion-font-family: "Verdana", "Helvetica Neue", "Roboto", sans-serif;
 
   --ion-color-angular: #ac282b;
   --ion-color-communication: #8e8d93;

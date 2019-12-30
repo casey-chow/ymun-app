@@ -104,7 +104,7 @@ const App: React.FC = () => (
                   <IonIcon icon={map} />
                   <IonLabel>Getting Around</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="Press" href="/press">
+                <IonTabButton tab="home" href="/home">
                   <IonIcon icon={home} />
                   <IonLabel>Home</IonLabel>
                 </IonTabButton>
