@@ -37,7 +37,7 @@ import Home from './pages/Home';
 import LocationDetail from './pages/LocationDetail';
 import MapDetail from './pages/MapDetail/index';
 import PostDetail from './pages/PostDetail';
-import Posts from './pages/Posts';
+import PostList from './pages/PostList';
 import Press from './pages/PressHome/index';
 import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
@@ -75,7 +75,7 @@ const App: React.FC = () => (
                 <Route path="/rooms" component={RoomAssignments} exact={true} />
                 <Route path="/locations/:id" component={LocationDetail} />
                 <Route path="/maps/:id" component={MapDetail} />
-                <Route path="/posts" component={Posts} exact={true} />
+                <Route path="/posts" component={PostList} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
                 <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />

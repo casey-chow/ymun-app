@@ -1,4 +1,4 @@
-import { IonCard, IonCol, IonGrid, IonImg, IonRow } from '@ionic/react';
+import { IonCard, IonCol, IonGrid, IonRow } from '@ionic/react';
 import React from 'react';
 
 export interface RoomAssignmentsCardProps {
@@ -23,7 +23,7 @@ const RoomAssignmentsCard: React.FC<RoomAssignmentsCardProps> = ({
       <IonGrid>
         <IonRow>
           <IonCol size="3" style={centerElementsVertically}>
-            {thumbnailUrl && <IonImg src={thumbnailUrl} />}
+            {thumbnailUrl && <img src={thumbnailUrl} alt={title} />}
           </IonCol>
           <IonCol style={centerElementsVertically}>
             <h4>{title}</h4>
