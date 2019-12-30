@@ -1,5 +1,5 @@
 .room-assignments {
-  --background: var(--ion-color-light, black);
+  --background: var(--ion-color-light, #cccccc);
 }
 
 .room-assignments .room-assignments-card {

@@ -1,7 +1,7 @@
-import { IonCard, IonCardHeader, IonImg } from '@ionic/react';
+import { Plugins } from '@capacitor/core';
+import { IonCard, IonImg } from '@ionic/react';
 import React from 'react';
 import { useCache } from 'rest-hooks';
-import { Plugins } from '@capacitor/core';
 import FileResource from '../../resources/file';
 import ResourceCategoryResource from '../../resources/resourceCategory';
 
@@ -19,20 +19,32 @@ const ResourceCategoryTile: React.FC<ResourceCategoryTileProps> = ({
   if (category.clickthrough_url) {
     const url = category.clickthrough_url;
     return (
-      <IonCard onClick={() => Browser.open({ url })} button class="expand">
-        {/* div is necessary to prevent rendering error with react + web components */}
-        <div>{icon && <IonImg src={icon.data.url} />}</div>
-        <IonCardHeader>{category.name}</IonCardHeader>
-      </IonCard>
+      <div>
+        <IonCard
+          onClick={() => Browser.open({ url })}
+          button
+          class="expand resource-category-tile"
+        >
+          {/* div is necessary to prevent rendering error with react + web components */}
+          <div>{icon && <IonImg src={icon.data.url} />}</div>
+        </IonCard>
+        <h2 className="tile-title">{category.name}</h2>
+      </div>
     );
   }
 
   return (
-    <IonCard routerLink={`/resources/${category.id}`} button class="expand">
-      {/* div is necessary to prevent rendering error with react + web components */}
-      <div>{icon && <IonImg src={icon.data.url} />}</div>
-      <IonCardHeader>{category.name}</IonCardHeader>
-    </IonCard>
+    <div>
+      <IonCard
+        routerLink={`/resources/${category.id}`}
+        button
+        class="expand resource-category-tile"
+      >
+        {/* div is necessary to prevent rendering error with react + web components */}
+        <div>{icon && <IonImg src={icon.data.url} />}</div>
+      </IonCard>
+      <h2 className="tile-title">{category.name}</h2>
+    </div>
   );
 };
 export default ResourceCategoryTile;

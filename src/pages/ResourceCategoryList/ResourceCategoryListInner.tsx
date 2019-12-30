@@ -31,7 +31,7 @@ const ResourceCategoryListInner: React.FC = () => {
           <IonTitle>Resources</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="resource-category-list">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Resources</IonTitle>

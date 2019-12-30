@@ -1,3 +1,21 @@
+.resource-category-list {
+  --background: var(--ion-color-light, #cccccc);
+}
+
+.resource-category-list  .tile-title {
+  color: var(--ion-color-primary, green);
+  font-size: 11px;
+  font-weight: bold;
+  padding-left: 12%;
+  padding-right: 12%;
+  text-align: center;
+}
+
+.resource-category-list .resource-category-tile {
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16);
+}
+
 ion-card.expand {
     height: calc(100% - 48px);
     width: calc(100% - 32px);
@@ -8,7 +26,10 @@ ion-col.resource-column {
     margin-bottom: -18px;
 }
 
+ion-col.resource-column:nth-child(odd) {
+    padding-left: 0;
+}
+
 ion-col.resource-column:nth-child(even) {
     padding-right: 0;
-    margin-left: -0.5em;
 }
