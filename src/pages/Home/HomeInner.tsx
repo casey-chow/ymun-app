@@ -1,8 +1,8 @@
 import { IonCol, IonContent, IonGrid, IonRow } from '@ionic/react';
 import React from 'react';
+import SectionHeader from '../../components/SectionHeader';
 import FollowThroughButton from './FollowThroughButton';
 import News from './News';
-import SectionHeader from './SectionHeader';
 import UpNext from './UpNext';
 
 const HomeInner: React.FC = () => {
