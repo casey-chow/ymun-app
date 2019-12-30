@@ -1,4 +1,8 @@
-ion-title {
+ion-title, ion-back-button .button-text {
   color: #01a490;
   font-family: "Cachet", "Verdana", sans-serif;
+}
+
+.ios ion-back-button .button-text {
+  font-size: 19px;
 }
