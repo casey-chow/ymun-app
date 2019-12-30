@@ -45,7 +45,7 @@ import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
-import './theme/theme.css';
+import './theme/custom.css';
 
 const App: React.FC = () => (
   <CacheProvider>
