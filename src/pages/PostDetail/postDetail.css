@@ -1,0 +1,40 @@
+/* .post-detail-header {
+  position: fixed;
+}
+
+.post-detail-header ion-toolbar {
+  --background: none;
+}
+
+.post-detail-header ion-back-button {
+  --color: white;
+}
+
+.post-detail-header ion-back-button .button-text {
+  color: white;
+}
+
+.post-detail-title {
+  width: 100%;
+}
+*/
+
+.post-detail .title-section {
+  margin-bottom: 0.5rem;
+}
+
+.post-detail h1 {
+  font-weight: bold;
+  font-family: "Cachet", "Verdana", -apple-system, Roboto, 'Helvetica Neue', sans-serif;
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.post-detail .subtitle {
+  font-size: 80%;
+  margin-top: 0em;
+}
+
+.post-detail p:first-child {
+  margin-top: 0;
+}
