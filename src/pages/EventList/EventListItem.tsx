@@ -2,18 +2,19 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
-  IonText,
   IonRippleEffect,
+  IonText,
   isPlatform,
 } from '@ionic/react';
 import dayjs from 'dayjs';
-import { arrowDropleft, arrowDropdown } from 'ionicons/icons';
+import Interweave from 'interweave';
+import { arrowDropdown, arrowDropleft } from 'ionicons/icons';
 import { isNil } from 'lodash';
 import React, { useCallback } from 'react';
 import { useCache } from 'rest-hooks';
-import Interweave from 'interweave';
 import EventResource from '../../resources/event';
 import LocationResource from '../../resources/location';
+import RoomAssignmentsButton from './RoomAssignmentsButton';
 
 interface EventDetailProps {
   readonly event: EventResource;
@@ -69,8 +70,9 @@ const EventsListItem: React.FC<EventDetailProps> = ({
         style={{ marginLeft: expanded ? '4.75rem' : '0', whiteSpace: 'normal' }}
       >
         <span>{event.title}</span>
-        <p>{location && location.name}</p>
+        <p>{location && !event.room_assignments && location.name}</p>
         {expandable && expanded && <Interweave content={event.description} />}
+        <RoomAssignmentsButton kind={event.room_assignments} />
       </IonLabel>
 
       {expandable && (

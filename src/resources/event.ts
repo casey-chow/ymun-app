@@ -14,4 +14,6 @@ export default class EventResource extends BaseResource {
   readonly end_time: string = '';
 
   readonly location?: number;
+
+  readonly room_assignments?: string;
 }
