@@ -3,6 +3,19 @@ ion-tab-bar ion-icon {
   margin-bottom: 4px;
 }
 
+ion-tab-bar .home-tab {
+  --color: white;
+  --color-selected: white;
+  background: url('/assets/home-bg.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+ion-tab-bar .home-tab ion-icon {
+  margin: 4px 0 6px;
+}
+
 ion-title, ion-back-button .button-text {
   color: #01a490;
   font-family: "Cachet", "Verdana", sans-serif;

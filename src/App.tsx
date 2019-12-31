@@ -104,7 +104,12 @@ const App: React.FC = () => (
                   <IonIcon src="/assets/globe.svg" />
                   <IonLabel>Press</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="home" href="/home">
+                <IonTabButton
+                  tab="home"
+                  href="/home"
+                  className="home-tab"
+                  layout="label-hide"
+                >
                   <IonIcon src="/assets/home.svg" />
                   <IonLabel>Home</IonLabel>
                 </IonTabButton>
