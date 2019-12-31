@@ -1,10 +1,10 @@
+import { IonCard, IonCol, IonGrid, IonRow } from '@ionic/react';
 import React from 'react';
-import { IonGrid, IonRow, IonCol, IonImg, IonCard } from '@ionic/react';
 
-export interface LocationCardProps {
+export interface RoomAssignmentsCardProps {
+  href?: string;
   thumbnailUrl?: string;
   title: string;
-  href?: string;
 }
 
 const centerElementsVertically = {
@@ -13,23 +13,20 @@ const centerElementsVertically = {
   justifyContent: 'center',
 };
 
-const LocationCard: React.FC<LocationCardProps> = ({
+const RoomAssignmentsCard: React.FC<RoomAssignmentsCardProps> = ({
+  href,
   thumbnailUrl,
   title,
-  href,
 }) => {
   return (
-    <IonCard routerLink={href}>
+    <IonCard routerLink={href} className="room-assignments-card">
       <IonGrid>
         <IonRow>
           <IonCol size="3" style={centerElementsVertically}>
-            <IonImg
-              src="/assets/map.png"
-              alt={`Thumbnail of Map for ${title}`}
-            />
+            {thumbnailUrl && <img src={thumbnailUrl} alt={title} />}
           </IonCol>
           <IonCol style={centerElementsVertically}>
-            <h4 style={{ color: 'black', margin: '0' }}>{title}</h4>
+            <h4>{title}</h4>
           </IonCol>
         </IonRow>
       </IonGrid>
@@ -37,4 +34,4 @@ const LocationCard: React.FC<LocationCardProps> = ({
   );
 };
 
-export default LocationCard;
+export default RoomAssignmentsCard;

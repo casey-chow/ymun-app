@@ -3,8 +3,6 @@ import {
   IonBadge,
   IonButton,
   IonButtons,
-  IonCardSubtitle,
-  IonCardTitle,
   IonCol,
   IonContent,
   IonFooter,
@@ -14,14 +12,15 @@ import {
   IonRow,
   IonToolbar,
 } from '@ionic/react';
+import dayjs from 'dayjs';
 import Interweave from 'interweave';
 import { thumbsUp } from 'ionicons/icons';
 import React, { useCallback, useState } from 'react';
 import { useFetcher, useResource } from 'rest-hooks';
+import FileResource from '../../resources/file';
 import PostResource from '../../resources/post';
 import UpvoteResource from '../../resources/upvote';
 import UserResource from '../../resources/user';
-import FileResource from '../../resources/file';
 
 interface PostDetailInnerProps {
   id: string;
@@ -55,46 +54,30 @@ const PostDetailInner: React.FC<PostDetailInnerProps> = ({ id }) => {
 
   return (
     <>
-      <IonHeader>
+      <IonHeader className="post-detail-header">
         <IonToolbar>
           <IonButtons slot="start">
             <IonBackButton defaultHref="/posts" text="Posts" />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="post-detail">
+        {headerImage && (
+          <div className="post-detail-title">
+            <img src={headerImage.data.url} alt={headerImage.description} />
+          </div>
+        )}
         <IonGrid>
           <IonRow>
-            <IonCol>
-              <IonCardTitle>{post.title}</IonCardTitle>
+            <IonCol className="title-section">
+              <h1>{post.title}</h1>
+              <span className="subtitle">
+                by {author.first_name} {author.last_name}
+                {' | posted '}
+                {dayjs(post.created_on).format('dddd, MMM D, YYYY h:mm a')}
+              </span>
             </IonCol>
           </IonRow>
-          <IonRow>
-            <IonCol>
-              <IonCardSubtitle>
-                {author.first_name} {author.last_name} {post.created_on}
-              </IonCardSubtitle>
-            </IonCol>
-          </IonRow>
-          {headerImage && (
-            <IonRow>
-              <IonCol>
-                <div
-                  style={{
-                    maxHeight: '100%',
-                    maxWidth: '100%',
-                    height: 'auto',
-                    width: 'auto',
-                  }}
-                >
-                  <img
-                    src={headerImage.data.url}
-                    alt={headerImage.description}
-                  />
-                </div>
-              </IonCol>
-            </IonRow>
-          )}
           <IonRow>
             <IonCol>
               <Interweave content={post.body} />

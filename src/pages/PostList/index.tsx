@@ -3,18 +3,19 @@ import React, { Suspense } from 'react';
 import { NetworkErrorBoundary } from 'rest-hooks';
 import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import SuspenseFallback from '../../components/SuspenseFallback';
-import PostsInner from './PostsInner';
+import './postList.css';
+import PostListInner from './PostListInner';
 
-const Posts: React.FC = () => {
+const PostList: React.FC = () => {
   return (
     <IonPage>
       <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
         <Suspense fallback={<SuspenseFallback title="Posts" />}>
-          <PostsInner />
+          <PostListInner />
         </Suspense>
       </NetworkErrorBoundary>
     </IonPage>
   );
 };
 
-export default Posts;
+export default PostList;

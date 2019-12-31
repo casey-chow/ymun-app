@@ -24,22 +24,20 @@ const UpNext: React.FC = () => {
       : events;
 
   return (
-    <>
-      {eventsFiltered.map((event) => (
-        <IonCard color="light" key={event.id}>
-          <IonGrid>
-            <IonRow>
-              <IonCol size="3">
-                <strong>
-                  {dayjs(event.start_time).format(displayTimeFormat)}
-                </strong>
-              </IonCol>
-              <IonCol>{event.title}</IonCol>
-            </IonRow>
-          </IonGrid>
-        </IonCard>
-      ))}
-    </>
+    <IonCard color="light" className="section-up-next">
+      <IonGrid>
+        {eventsFiltered.map((event) => (
+          <IonRow key={event.id}>
+            <IonCol size="3">
+              <strong>
+                {dayjs(event.start_time).format(displayTimeFormat)}
+              </strong>
+            </IonCol>
+            <IonCol>{event.title}</IonCol>
+          </IonRow>
+        ))}
+      </IonGrid>
+    </IonCard>
   );
 };
 

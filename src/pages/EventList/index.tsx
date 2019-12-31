@@ -5,6 +5,8 @@ import SuspenseFallback from '../../components/SuspenseFallback';
 import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import EventListInner from './EventListInner';
 
+import './eventList.css';
+
 const EventList: React.FC = () => {
   return (
     <IonPage>

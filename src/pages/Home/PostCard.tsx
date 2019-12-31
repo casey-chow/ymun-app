@@ -20,7 +20,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     );
 
   return (
-    <IonCard className="post-card">
+    <IonCard className="post-card" routerLink={`/posts/${post.id}`}>
       {thumbnail && (
         <img
           src={thumbnail.url}

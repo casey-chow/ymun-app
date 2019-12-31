@@ -1,5 +1,7 @@
-import { IonButton, IonCol, IonContent, IonGrid, IonRow } from '@ionic/react';
+import { IonCol, IonContent, IonGrid, IonRow } from '@ionic/react';
 import React from 'react';
+import SectionHeader from '../../components/SectionHeader';
+import FollowThroughButton from './FollowThroughButton';
 import News from './News';
 import UpNext from './UpNext';
 
@@ -7,15 +9,21 @@ const HomeInner: React.FC = () => {
   return (
     <>
       <IonContent className="page-home">
+        <div className="home-top">
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                <h1 className="home-header-text ion-text-center ion-text-uppercase">
+                  YMCA Model United Nations 2020
+                </h1>
+                <h2 className="home-subheader-text ion-text-center">
+                  January 3-5
+                </h2>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        </div>
         <IonGrid>
-          <IonRow>
-            <IonCol>
-              <h1 className="ion-text-center ion-text-uppercase">
-                YMCA Model United Nations
-              </h1>
-              <h2 className="ion-text-center">January 3-5</h2>
-            </IonCol>
-          </IonRow>
           {/* <IonRow>
             <IonCol>
               <h1> Announcements </h1>
@@ -24,29 +32,18 @@ const HomeInner: React.FC = () => {
           </IonRow> */}
           <IonRow>
             <IonCol size="12">
-              <h1>Up Next</h1>
+              <SectionHeader>Up Next</SectionHeader>
             </IonCol>
             <IonCol>
               <UpNext />
-              <IonButton
-                color="light"
-                fill="solid"
-                // style={
-                //   isPlatform('ios') ? styles.iOSButton : styles.androidButton
-                // }
-                href="/events"
-              >
-                Schedule
-              </IonButton>
+              <FollowThroughButton href="/events">Schedule</FollowThroughButton>
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol>
-              <h1>News</h1>
+              <SectionHeader>News</SectionHeader>
               <News />
-              <IonButton color="light" href="/posts">
-                News
-              </IonButton>
+              <FollowThroughButton href="/posts">News</FollowThroughButton>
             </IonCol>
           </IonRow>
         </IonGrid>

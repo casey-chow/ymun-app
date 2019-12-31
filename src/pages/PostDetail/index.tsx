@@ -6,6 +6,8 @@ import SuspenseFallback from '../../components/SuspenseFallback';
 import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import PostDetailInner from './PostDetailInner';
 
+import './postDetail.css';
+
 type PostDetailProps = RouteComponentProps<{
   id: string;
 }>;

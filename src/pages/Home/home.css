@@ -1,12 +1,48 @@
-.ios .page-home {
+.page-home {
   --background: linear-gradient(180deg, rgba(56,125,126,1) 0%, rgba(87,183,185,1) 100%);
 }
 
-.ios .page-home .post-card {
+.page-home .home-top {
+  background: url('/assets/home-top.svg') top center no-repeat; 
+  height: 75vw; /* background aspect ratio is 4:3 */
+  padding-top: 20px;
+}
+
+.page-home .home-top .home-header-text {
+  color: white;
+  font-family: 'Cachet', sans-serif;
+  font-size: 30px;
+}
+
+.page-home .home-top .home-subheader-text {
+  color: white;
+  font-family: 'Verdana', sans-serif;
+  font-size: 18px;
+}
+
+.page-home .section-follow-through {
+  --border-radius: 20%/50%;
+  --padding-start: 1em;
+  --padding-end: 1em;
+  margin-right: 0;
+  float: right;
+  margin-top: 1rem;
+}
+
+.page-home .section-up-next {
+  margin: 0;
+}
+
+.page-home .section-up-next ion-grid {
+  --ion-grid-padding: 0.75rem;
+}
+
+.page-home .post-card {
+  margin-top: 0;
   --background: white;
 }
 
-.ios .page-home .post-card ion-card-content {
+.page-home .post-card ion-card-content {
   display: -webkit-box;
   margin: 0.75rem;
   min-height: 2.75em;

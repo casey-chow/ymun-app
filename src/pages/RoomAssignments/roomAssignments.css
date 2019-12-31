@@ -1,3 +1,19 @@
-.room-assignments-swiper .swiper-wrapper {
-  padding-bottom: 20px;
+.room-assignments {
+  --background: var(--ion-color-light, #cccccc);
+}
+
+.room-assignments .room-assignments-card {
+  --background: white;
+}
+
+.ios .room-assignments-card {
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16);
+  margin: 10px 15px;
+}
+
+.ios .room-assignments-card h4 {
+  color: black;
+  font-size: 18px;
+  margin: 0;
 }
