@@ -16,11 +16,16 @@ ion-tab-bar .home-tab ion-icon {
   margin: 4px 0 6px;
 }
 
-ion-title, ion-back-button .button-text {
+ion-title,
+ion-back-button .button-text {
   color: #01a490;
-  font-family: "Cachet", "Verdana", sans-serif;
+  font-family: 'Cachet', 'Verdana', sans-serif;
 }
 
 .ios ion-back-button .button-text {
   font-size: 19px;
+}
+
+ion-content {
+  overscroll-behavior: none;
 }

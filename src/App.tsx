@@ -42,9 +42,10 @@ import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
-import './theme/custom.css';
+
 /* Theme variables */
 import './theme/variables.css';
+import './theme/custom.css';
 
 const App: React.FC = () => (
   <CacheProvider>
