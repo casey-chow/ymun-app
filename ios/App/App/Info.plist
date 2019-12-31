@@ -33,7 +33,7 @@
 	<key>IonMinBackgroundDuration</key>
 	<string>30</string>
 	<key>IonUpdateMethod</key>
-	<string>background</string>
+	<string>auto</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
