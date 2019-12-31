@@ -20,9 +20,9 @@
 }
 
 ion-card.expand {
-    height: calc(100% - 48px);
-    width: calc(100% - 32px);
-    margin-bottom: 24px;
+  height: calc(100% - 48px);
+  width: calc(100% - 32px);
+  margin-bottom: 24px;
 }
 
 ion-col.resource-column {

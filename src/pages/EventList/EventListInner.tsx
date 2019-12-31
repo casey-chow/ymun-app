@@ -2,7 +2,6 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonList,
   IonSelect,
   IonSelectOption,
   IonTitle,
@@ -60,30 +59,28 @@ const EventListInner: React.FC = () => {
           <IonTitle>Schedule</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="event-list">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
 
-        <IonList lines="full">
-          {eventsSorted.map((event) => (
-            <EventsListItem
-              key={event.id}
-              event={event}
-              expanded={expandedKey === event.id}
-              onClick={(expanded) => {
-                // toggle expanded state
-                if (expanded) {
-                  setExpandedKey(undefined);
-                } else {
-                  setExpandedKey(event.id);
-                }
-              }}
-            />
-          ))}
-        </IonList>
+        {eventsSorted.map((event) => (
+          <EventsListItem
+            key={event.id}
+            event={event}
+            expanded={expandedKey === event.id}
+            onClick={(expanded) => {
+              // toggle expanded state
+              if (expanded) {
+                setExpandedKey(undefined);
+              } else {
+                setExpandedKey(event.id);
+              }
+            }}
+          />
+        ))}
       </IonContent>
     </>
   );
