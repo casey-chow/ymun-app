@@ -1,17 +1,25 @@
 .page-home {
-  --background: linear-gradient(180deg, rgba(56,125,126,1) 0%, rgba(87,183,185,1) 100%);
+  --background: linear-gradient(
+    180deg,
+    rgba(56, 125, 126, 1) 0%,
+    rgba(87, 183, 185, 1) 100%
+  );
 }
 
 .page-home .home-top {
-  background: url('/assets/home-top.svg') top center no-repeat; 
+  background: url('/assets/home-top.svg') top center no-repeat;
   height: 75vw; /* background aspect ratio is 4:3 */
   padding-top: 20px;
+
+  @supports (margin-bottom: env(safe-area-inset-top)) {
+    padding-top: calc(env(safe-area-inset-top) + 20px);
+  }
 }
 
 .page-home .home-top .home-header-text {
   color: white;
   font-family: 'Cachet', sans-serif;
-  font-size: 30px;
+  font-size: 9vw;
 }
 
 .page-home .home-top .home-subheader-text {
