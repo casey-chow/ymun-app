@@ -21,7 +21,6 @@ import '@ionic/react/css/structure.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
-import { book, calendar, home, map, paper } from 'ionicons/icons';
 import React, { Suspense } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
@@ -43,9 +42,9 @@ import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
+import './theme/custom.css';
 /* Theme variables */
 import './theme/variables.css';
-import './theme/custom.css';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -97,24 +96,24 @@ const App: React.FC = () => (
                 />
               </IonRouterOutlet>
               <IonTabBar slot="bottom">
-                <IonTabButton tab="Posts" href="/posts">
-                  <IonIcon icon={paper} />
-                  <IonLabel>Posts</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="rooms" href="/rooms">
-                  <IonIcon icon={map} />
-                  <IonLabel>Getting Around</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="home" href="/home">
-                  <IonIcon icon={home} />
-                  <IonLabel>Home</IonLabel>
-                </IonTabButton>
                 <IonTabButton tab="events" href="/events">
-                  <IonIcon icon={calendar} />
+                  <IonIcon src="/assets/calendar.svg" />
                   <IonLabel>Schedule</IonLabel>
                 </IonTabButton>
+                <IonTabButton tab="press" href="/posts">
+                  <IonIcon src="/assets/globe.svg" />
+                  <IonLabel>Press</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="home" href="/home">
+                  <IonIcon src="/assets/home.svg" />
+                  <IonLabel>Home</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="rooms" href="/rooms">
+                  <IonIcon src="/assets/compass.svg" />
+                  <IonLabel>Getting Around</IonLabel>
+                </IonTabButton>
                 <IonTabButton tab="resources" href="/resources">
-                  <IonIcon icon={book} />
+                  <IonIcon src="/assets/page.svg" />
                   <IonLabel>Resources</IonLabel>
                 </IonTabButton>
               </IonTabBar>
