@@ -14,7 +14,8 @@ const CountryItem: React.FC<CountryItemProps> = ({ country }) => {
   });
 
   return (
-    <IonItem routerLink={`/locations/${country.country_caucus_location}`}>
+    // <IonItem routerLink={`/locations/${country.country_caucus_location}`}>
+    <IonItem>
       <IonLabel>{country.name}</IonLabel>
       <IonNote class="ion-text-wrap">{location && location.name}</IonNote>
     </IonItem>
