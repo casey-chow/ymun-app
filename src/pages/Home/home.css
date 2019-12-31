@@ -38,6 +38,7 @@
 }
 
 .page-home .post-card {
+  margin-top: 0;
   --background: white;
 }
 

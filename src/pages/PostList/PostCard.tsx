@@ -44,7 +44,7 @@ const PostCard: React.FC<PostListProps> = ({ post }) => {
               {dayjs(post.created_on).fromNow()} | {upvotes.length} Likes
             </small>
             <div className="content">
-              <Interweave content={post.body} />
+              <Interweave noHtml content={post.body} />
             </div>
           </IonCol>
         </IonRow>
