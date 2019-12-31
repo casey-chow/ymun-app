@@ -13,9 +13,8 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <h2
       style={{
-        fontFamily: "'Verdana', sans-serif",
-        fontSize: '18px',
-        fontWeight: 'bold',
+        fontFamily: "'Cachet', sans-serif",
+        fontSize: '24px',
         marginLeft: '15px',
       }}
     >

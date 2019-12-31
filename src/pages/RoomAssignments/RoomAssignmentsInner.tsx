@@ -30,12 +30,12 @@ const RoomAssignmentsInner: React.FC = () => {
             <IonTitle size="large">Getting Around</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <SectionHeader color="primary">Maps</SectionHeader>
+        <SectionHeader color="black">Maps</SectionHeader>
         {maps.map((map) => (
           <MapCard key={map.id} map={map} />
         ))}
 
-        <SectionHeader color="primary">Room Assignments</SectionHeader>
+        <SectionHeader color="black">Room Assignments</SectionHeader>
         <RoomAssignmentsCard
           title="Committees"
           href="/rooms/committees"
