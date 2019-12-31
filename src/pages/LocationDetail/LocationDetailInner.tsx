@@ -9,6 +9,7 @@ import {
 import React from 'react';
 import { useResource, NetworkErrorBoundary, NetworkError } from 'rest-hooks';
 import LocationResource from '../../resources/location';
+import SectionHeader from '../../components/SectionHeader';
 import LocationMap from './LocationMap';
 
 interface MapDetailInnerProps {
@@ -33,7 +34,7 @@ const LocationDetailInner: React.FC<MapDetailInnerProps> = ({ id }) => {
         </IonToolbar>
       </IonHeader>
       <IonContent class="map-detail">
-        <h1>{location.name}</h1>
+        <SectionHeader color="black">{location.name}</SectionHeader>
         <NetworkErrorBoundary fallbackComponent={ErrorFallback}>
           <LocationMap id={location.map} />
         </NetworkErrorBoundary>

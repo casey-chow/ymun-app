@@ -30,27 +30,29 @@ const RoomAssignmentsInner: React.FC = () => {
             <IonTitle size="large">Getting Around</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <SectionHeader color="black">Maps</SectionHeader>
-        {maps.map((map) => (
-          <MapCard key={map.id} map={map} />
-        ))}
+        <div className="background-inner">
+          <SectionHeader color="black">Maps</SectionHeader>
+          {maps.map((map) => (
+            <MapCard key={map.id} map={map} />
+          ))}
 
-        <SectionHeader color="black">Room Assignments</SectionHeader>
-        <RoomAssignmentsCard
-          title="Committees"
-          href="/rooms/committees"
-          thumbnailUrl="/assets/map.png"
-        />
-        <RoomAssignmentsCard
-          title="Country Caucus"
-          href="/rooms/country-caucus"
-          thumbnailUrl="/assets/map.png"
-        />
-        <RoomAssignmentsCard
-          title="Delegation Meetings"
-          href="/rooms/delegation-meetings"
-          thumbnailUrl="/assets/map.png"
-        />
+          <SectionHeader color="black">Room Assignments</SectionHeader>
+          <RoomAssignmentsCard
+            title="Committees"
+            href="/rooms/committees"
+            thumbnailUrl="/assets/map.png"
+          />
+          <RoomAssignmentsCard
+            title="Country Caucus"
+            href="/rooms/country-caucus"
+            thumbnailUrl="/assets/map.png"
+          />
+          <RoomAssignmentsCard
+            title="Delegation Meetings"
+            href="/rooms/delegation-meetings"
+            thumbnailUrl="/assets/map.png"
+          />
+        </div>
       </IonContent>
     </>
   );

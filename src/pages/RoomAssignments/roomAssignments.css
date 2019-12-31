@@ -1,14 +1,10 @@
-.room-assignments {
-  --background: var(--ion-color-light, #cccccc);
-}
-
 .room-assignments .room-assignments-card {
   --background: white;
 }
 
 .ios .room-assignments-card {
   border-radius: 3px;
-  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
   margin: 10px 15px;
 }
 

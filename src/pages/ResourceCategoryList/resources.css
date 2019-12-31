@@ -1,12 +1,8 @@
-.resource-category-list {
-  --background: var(--ion-color-light, #cccccc);
-}
-
 .resource-category-list .category-grid {
   --ion-grid-padding: 0;
 }
 
-.resource-category-list  .tile-title {
+.resource-category-list .tile-title {
   font-size: min(16px, 4vw);
   padding-left: 12%;
   padding-right: 12%;
@@ -15,7 +11,7 @@
 
 .resource-category-list .resource-category-tile {
   border-radius: 3px;
-  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
   margin-bottom: 0;
 }
 

@@ -66,21 +66,23 @@ const EventListInner: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-        {eventsSorted.map((event) => (
-          <EventsListItem
-            key={event.id}
-            event={event}
-            expanded={expandedKey === event.id}
-            onClick={(expanded) => {
-              // toggle expanded state
-              if (expanded) {
-                setExpandedKey(undefined);
-              } else {
-                setExpandedKey(event.id);
-              }
-            }}
-          />
-        ))}
+        <div className="background-inner">
+          {eventsSorted.map((event) => (
+            <EventsListItem
+              key={event.id}
+              event={event}
+              expanded={expandedKey === event.id}
+              onClick={(expanded) => {
+                // toggle expanded state
+                if (expanded) {
+                  setExpandedKey(undefined);
+                } else {
+                  setExpandedKey(event.id);
+                }
+              }}
+            />
+          ))}
+        </div>
       </IonContent>
     </>
   );

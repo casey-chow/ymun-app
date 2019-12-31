@@ -20,9 +20,11 @@ const PostListInner: React.FC = () => {
             <IonTitle size="large">Posts</IonTitle>
           </IonToolbar>
         </IonHeader>
-        {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
+        <div className="background-inner">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </div>
       </IonContent>
     </>
   );
