@@ -36,14 +36,18 @@ const HomeInner: React.FC = () => {
             </IonCol>
             <IonCol>
               <UpNext />
-              <FollowThroughButton href="/events">Schedule</FollowThroughButton>
+              <FollowThroughButton routerLink="/events">
+                Schedule
+              </FollowThroughButton>
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol>
               <SectionHeader>News</SectionHeader>
               <News />
-              <FollowThroughButton href="/posts">News</FollowThroughButton>
+              <FollowThroughButton routerLink="/posts">
+                News
+              </FollowThroughButton>
             </IonCol>
           </IonRow>
         </IonGrid>
