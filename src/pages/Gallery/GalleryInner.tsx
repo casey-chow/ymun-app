@@ -7,12 +7,12 @@ import {
   IonRow,
   IonCol,
   IonGrid,
-  IonImg,
 } from '@ionic/react';
 import _ from 'lodash';
 import { useResource } from 'rest-hooks';
 import GalleryPhotosResource from '../../resources/galleryPhoto';
 import FileResource from '../../resources/file';
+import GalleryItem from './GalleryItem';
 
 const GalleryInner: React.FC = () => {
   const galleryPhotos = useResource(GalleryPhotosResource.listShape(), {});
@@ -24,6 +24,7 @@ const GalleryInner: React.FC = () => {
       .join(','),
   });
   const fileById = _.keyBy(files, 'id');
+  console.log(fileById);
 
   return (
     <>
@@ -41,8 +42,13 @@ const GalleryInner: React.FC = () => {
         <IonGrid>
           <IonRow>
             {galleryPhotos.map((pic) => {
-              const file = pic.id && fileById[pic.id];
-              if (!file) return null;
+              return (
+                <IonCol key={pic.id} size="4" class="pic-column">
+                  <GalleryItem photo={pic} />
+                </IonCol>
+              );
+              /* const file = pic.id && fileById[pic.id];
+              if (!file) return null;l
 
               return (
                 <IonCol key={pic.id}>
@@ -58,7 +64,7 @@ const GalleryInner: React.FC = () => {
                     }}
                   />
                 </IonCol>
-              );
+              ); */
             })}
           </IonRow>
         </IonGrid>
@@ -68,3 +74,6 @@ const GalleryInner: React.FC = () => {
 };
 
 export default GalleryInner;
+// use ion router link
+// new view when you click on a photo, model it like resource category detail --> get id of photo from url
+// maybe use likes

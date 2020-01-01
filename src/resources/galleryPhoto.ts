@@ -1,10 +1,10 @@
 import BaseResource from './base';
 
-export interface Thumbnail {
+/* export interface Thumbnail {
   readonly url: string;
   readonly width: number;
   readonly height: number;
-}
+} */
 
 export default class GalleryPhotosResource extends BaseResource {
   static urlRoot = 'https://ymun-app.caseychow.org/_/items/gallery_photos';
