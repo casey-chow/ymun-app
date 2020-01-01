@@ -44,11 +44,11 @@ const ResourcePageDetailInner: React.FC<ResourcePageDetailInnerProps> = ({
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="resource-page-detail">
         <IonGrid>
           <IonRow>
             <IonCol>
-              <h1>{page.title}</h1>
+              <h1 className="title">{page.title}</h1>
               <Interweave content={page.body}></Interweave>
             </IonCol>
           </IonRow>

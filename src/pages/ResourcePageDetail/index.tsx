@@ -6,6 +6,8 @@ import NetworkErrorFallback from '../../components/NetworkErrorFallback';
 import SuspenseFallback from '../../components/SuspenseFallback';
 import ResourcePageDetailInner from './ResourcePageDetailInner';
 
+import './resourcePageDetail.css';
+
 type ResourcePageDetailProps = RouteComponentProps<{
   id: string;
 }>;
