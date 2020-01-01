@@ -1,0 +1,34 @@
+.event-list-item {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+  margin-bottom: 0;
+  margin-top: 12px;
+}
+
+.event-list-item:last-child {
+  margin-bottom: 3rem;
+}
+
+.event-list-item .event-title {
+  color: var(--ion-color-dark, darkGray);
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.event-list-item .event-location {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.event-list-item .event-times {
+  color: var(--ion-color-primary, green);
+  padding-top: 0.2rem;
+  height: 100%;
+}
+
+.event-list-item .expanding-indicator {
+  padding-top: 0.2rem;
+}

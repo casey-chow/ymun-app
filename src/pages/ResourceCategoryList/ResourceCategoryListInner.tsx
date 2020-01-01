@@ -31,13 +31,13 @@ const ResourceCategoryListInner: React.FC = () => {
           <IonTitle>Resources</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="resource-category-list">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Resources</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonGrid>
+        <IonGrid className="category-grid background-inner">
           <IonRow>
             {resourceCategories.map((category) => (
               <IonCol key={category.id} size="6" class="resource-column">

@@ -2,10 +2,11 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 import _ from 'lodash';
 import React from 'react';
 import { useResource, useRetrieve } from 'rest-hooks';
+import SectionHeader from '../../components/SectionHeader';
 import FileResource from '../../resources/file';
 import MapResource from '../../resources/map';
-import LocationCard from './LocationCard';
 import MapCard from './MapCard';
+import RoomAssignmentsCard from './RoomAssignmentsCard';
 
 const RoomAssignmentsInner: React.FC = () => {
   const maps = useResource(MapResource.listShape(), {});
@@ -23,23 +24,35 @@ const RoomAssignmentsInner: React.FC = () => {
           <IonTitle>Getting Around</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="room-assignments">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Getting Around</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <h1>Maps</h1>
-        {maps.map((map) => (
-          <MapCard key={map.id} map={map} />
-        ))}
-        <h1>Room Assignments</h1>
-        <LocationCard title="Committees" href="/rooms/committees" />
-        <LocationCard title="Country Caucus" href="/rooms/country-caucus" />
-        <LocationCard
-          title="Delegation Meetings"
-          href="/rooms/delegation-meetings"
-        />
+        <div className="background-inner">
+          <SectionHeader color="black">Maps</SectionHeader>
+          {maps.map((map) => (
+            <MapCard key={map.id} map={map} />
+          ))}
+
+          <SectionHeader color="black">Room Assignments</SectionHeader>
+          <RoomAssignmentsCard
+            title="Committees"
+            href="/rooms/committees"
+            thumbnailUrl="/assets/map.png"
+          />
+          <RoomAssignmentsCard
+            title="Country Caucus"
+            href="/rooms/country-caucus"
+            thumbnailUrl="/assets/map.png"
+          />
+          <RoomAssignmentsCard
+            title="Delegation Meetings"
+            href="/rooms/delegation-meetings"
+            thumbnailUrl="/assets/map.png"
+          />
+        </div>
       </IonContent>
     </>
   );

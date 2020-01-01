@@ -1,0 +1,27 @@
+.post-list .post-card {
+  border-radius: 3px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: white;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  max-height: 8rem;
+}
+
+.post-list .post-card h2 {
+  color: black;
+  font-size: 16px;
+  margin: 0;
+}
+
+.post-list .post-card .content {
+  display: -webkit-box;
+  font-size: 10px;
+  overflow: hidden;
+  margin-top: 0.5em;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.post-list .post-card .content p {
+  margin: 0;
+}

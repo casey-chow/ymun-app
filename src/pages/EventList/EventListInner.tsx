@@ -2,7 +2,6 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonList,
   IonSelect,
   IonSelectOption,
   IonTitle,
@@ -60,14 +59,14 @@ const EventListInner: React.FC = () => {
           <IonTitle>Schedule</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="event-list">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Schedule</IonTitle>
           </IonToolbar>
         </IonHeader>
 
-        <IonList lines="full">
+        <div className="background-inner">
           {eventsSorted.map((event) => (
             <EventsListItem
               key={event.id}
@@ -83,7 +82,7 @@ const EventListInner: React.FC = () => {
               }}
             />
           ))}
-        </IonList>
+        </div>
       </IonContent>
     </>
   );

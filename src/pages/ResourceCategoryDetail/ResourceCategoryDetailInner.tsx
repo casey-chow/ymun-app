@@ -39,11 +39,11 @@ const ResourceCategoryDetailInner: React.FC<ResourceCategoryDetailInnerProps> = 
           </IonButtons>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="resource-category-detail">
         <IonGrid>
           <IonRow>
             <IonCol>
-              <h1>{category.name}</h1>
+              <h1 className="title">{category.name}</h1>
               <Interweave content={category.description}></Interweave>
             </IonCol>
           </IonRow>

@@ -1,6 +1,27 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
 
+@font-face {
+  font-family: 'Cachet';
+  src: url('../fonts/Cachet-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cachet';
+  src: url('../fonts/Cachet-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cachet';
+  src: url('../fonts/Cachet-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

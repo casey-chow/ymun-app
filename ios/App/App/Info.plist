@@ -31,7 +31,7 @@
 	<key>IonMaxVersions</key>
 	<string>2</string>
 	<key>IonMinBackgroundDuration</key>
-	<string>30</string>
+	<string>5</string>
 	<key>IonUpdateMethod</key>
 	<string>background</string>
 	<key>LSRequiresIPhoneOS</key>
