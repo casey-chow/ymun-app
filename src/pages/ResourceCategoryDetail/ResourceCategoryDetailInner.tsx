@@ -44,7 +44,7 @@ const ResourceCategoryDetailInner: React.FC<ResourceCategoryDetailInnerProps> = 
           <IonRow>
             <IonCol>
               <h1 className="title">{category.name}</h1>
-              <Interweave content={category.description}></Interweave>
+              <Interweave content={category.description} />
             </IonCol>
           </IonRow>
         </IonGrid>
