@@ -32,6 +32,7 @@ import DelegationMeetingRoomAssignments from './pages/DelegationMeetingRoomAssig
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import Gallery from './pages/Gallery';
+import GalleryDetail from './pages/GalleryDetail';
 import Home from './pages/Home';
 import LocationDetail from './pages/LocationDetail';
 import MapDetail from './pages/MapDetail/index';
@@ -56,7 +57,7 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
-                <Route path="/gallery" component={Gallery} exact={true} />
+                {/* <Route path="/gallery" component={Gallery} exact={true} /> */}
                 <Route
                   path="/rooms/committees"
                   component={CommitteeRoomAssignments}
@@ -66,6 +67,12 @@ const App: React.FC = () => (
                   path="/rooms/country-caucus"
                   component={CountryCaucusRoomAssignments}
                   exact
+                />
+                <Route path="/press/gallery" component={Gallery} exact={true} />
+                <Route
+                  path="/press/gallery/:id"
+                  component={GalleryDetail}
+                  exact={true}
                 />
                 <Route
                   path="/rooms/delegation-meetings"
