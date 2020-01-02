@@ -9,6 +9,7 @@ import {
   IonHeader,
   IonRow,
   IonToolbar,
+  IonRouterLink,
 } from '@ionic/react';
 import Interweave from 'interweave';
 import React from 'react';
@@ -43,13 +44,18 @@ const CommitteeDetailInner: React.FC<CommitteeDetailInnerProps> = ({ id }) => {
             <IonCol>
               <h1 className="title">{committee.name}</h1>
               <p>
-                <strong>Location:</strong> {location.name}{' '}
+                <strong>Location:</strong>{' '}
+                <IonRouterLink routerLink={`/locations/${location.id}`}>
+                  {location.name}
+                </IonRouterLink>{' '}
               </p>
               <p>
-                <strong>Officer(s):</strong> {committee.officers}
+                <strong>Officer(s)</strong> <br />
+                <span style={{ whiteSpace: 'pre' }}>{committee.officers}</span>
               </p>
               <p>
-                <strong>Advisor(s):</strong> {committee.staffers}
+                <strong>Advisor(s)</strong> <br />
+                <span style={{ whiteSpace: 'pre' }}>{committee.staffers}</span>
               </p>
               <Interweave content={committee.misc}></Interweave>
               <p />

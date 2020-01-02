@@ -13,14 +13,12 @@ import {
 } from '@ionic/react';
 import _ from 'lodash';
 import React, { useCallback, useMemo, useState } from 'react';
-import { useResource, useRetrieve } from 'rest-hooks';
+import { useResource } from 'rest-hooks';
 import CommitteeResource from '../../resources/committee';
-import LocationResource from '../../resources/location';
 import CommitteeItem from './CommitteeItem';
 
 const CommitteeListInner: React.FC = () => {
   const committees = useResource(CommitteeResource.listShape(), {});
-  useRetrieve(LocationResource.listShape(), {});
 
   const [searchbarText, setSearchbarText] = useState<string | null>(null);
   const searchbarChanged = useCallback(
@@ -47,7 +45,7 @@ const CommitteeListInner: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/rooms" />
+            <IonBackButton defaultHref="/resources" />
           </IonButtons>
           <IonTitle>Committees</IonTitle>
         </IonToolbar>

@@ -1,5 +1,5 @@
 import { Plugins } from '@capacitor/core';
-import { IonCard, IonImg } from '@ionic/react';
+import { IonCard } from '@ionic/react';
 import React from 'react';
 import { useCache } from 'rest-hooks';
 import FileResource from '../../resources/file';
@@ -26,7 +26,7 @@ const ResourceCategoryTile: React.FC<ResourceCategoryTileProps> = ({
           class="expand resource-category-tile"
         >
           {/* div is necessary to prevent rendering error with react + web components */}
-          <div>{icon && <IonImg src={icon.data.url} />}</div>
+          <div>{icon && <img src={icon.data.url} alt={category.name} />}</div>
         </IonCard>
         <h2 className="tile-title">{category.name}</h2>
       </div>
@@ -41,7 +41,7 @@ const ResourceCategoryTile: React.FC<ResourceCategoryTileProps> = ({
         class="expand resource-category-tile"
       >
         {/* div is necessary to prevent rendering error with react + web components */}
-        <div>{icon && <IonImg src={icon.data.url} />}</div>
+        <div>{icon && <img src={icon.data.url} alt={category.name} />}</div>
       </IonCard>
       <h2 className="tile-title">{category.name}</h2>
     </div>
