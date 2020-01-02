@@ -1,4 +1,4 @@
-import { IonItem, IonLabel, IonNote } from '@ionic/react';
+import { IonItem, IonLabel, IonNote, isPlatform } from '@ionic/react';
 import React from 'react';
 import { useCache } from 'rest-hooks';
 import DelegationResource from '../../resources/delegation';
@@ -7,6 +7,12 @@ import LocationResource from '../../resources/location';
 export interface DelegationItemProps {
   delegation: DelegationResource;
 }
+
+const styles = {
+  mdNote: {
+    padding: '2em',
+  },
+};
 
 const DelegationItem: React.FC<DelegationItemProps> = ({ delegation }) => {
   const location = useCache(LocationResource.detailShape(), {
@@ -20,7 +26,10 @@ const DelegationItem: React.FC<DelegationItemProps> = ({ delegation }) => {
       <IonLabel class={isNarrow ? 'ion-text-wrap' : ''}>
         {delegation.name}
       </IonLabel>
-      <IonNote class="ion-text-wrap">
+      <IonNote
+        class="ion-text-wrap"
+        style={isPlatform('android') ? styles.mdNote : {}}
+      >
         {isNarrow ? (
           <small>{location && location.name}</small>
         ) : (

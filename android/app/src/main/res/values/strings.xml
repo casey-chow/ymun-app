@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ymun-app</string>
+    <string name="title_activity_main">Y-MUN</string>
+    <string name="package_name">org.caseychow.ymunapp</string>
+    <string name="custom_url_scheme">org.caseychow.ymunapp</string>
+</resources>

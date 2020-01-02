@@ -1,0 +1,13 @@
+{
+  "appId": "org.caseychow.ymunapp",
+  "appName": "ymun-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {},
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1000
+    }
+  }
+}
