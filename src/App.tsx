@@ -26,6 +26,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { CacheProvider, NetworkErrorBoundary } from 'rest-hooks';
 import NetworkErrorFallback from './components/NetworkErrorFallback';
 import SuspenseFallback from './components/SuspenseFallback';
+import CommitteeList from './pages/CommitteeList/index';
 import CommitteeRoomAssignments from './pages/CommitteeRoomAssignments/index';
 import CountryCaucusRoomAssignments from './pages/CountryCaucusRoomAssignments';
 import DelegationMeetingRoomAssignments from './pages/DelegationMeetingRoomAssignments/index';
@@ -43,7 +44,6 @@ import ResourceCategoryDetail from './pages/ResourceCategoryDetail/index';
 import ResourceCategoryList from './pages/ResourceCategoryList/index';
 import ResourcePageDetail from './pages/ResourcePageDetail/index';
 import RoomAssignments from './pages/RoomAssignments';
-
 /* Theme variables */
 import './theme/variables.css';
 import './theme/custom.css';
@@ -83,6 +83,11 @@ const App: React.FC = () => (
                 <Route path="/maps/:id" component={MapDetail} />
                 <Route path="/posts" component={PostList} exact={true} />
                 <Route path="/posts/:id" component={PostDetail} />
+                <Route
+                  path="/committees"
+                  component={CommitteeList}
+                  exact={true}
+                />
                 <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route path="/pages/:id" component={ResourcePageDetail} />
