@@ -16,8 +16,7 @@ const DelegationItem: React.FC<DelegationItemProps> = ({ delegation }) => {
   const isNarrow = window.outerWidth < 350;
 
   return (
-    // <IonItem routerLink={`/locations/${delegation.meeting_location}`}>
-    <IonItem>
+    <IonItem routerLink={`/locations/${delegation.meeting_location}`}>
       <IonLabel class={isNarrow ? 'ion-text-wrap' : ''}>
         {delegation.name}
       </IonLabel>
