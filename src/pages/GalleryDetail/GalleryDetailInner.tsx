@@ -47,10 +47,7 @@ const GalleryDetailInner: React.FC<GalleryDetailInnerProps> = ({ id }) => {
             height: 100,
           }}
         >
-          <img
-            src={file && file.data.url}
-            alt={`picture of ${file.description}`}
-          />
+          <img src={file && file.data.url} alt={file.description} />
         </PinchToZoom>
       </IonContent>
     </>

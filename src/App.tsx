@@ -47,6 +47,7 @@ import RoomAssignments from './pages/RoomAssignments';
 /* Theme variables */
 import './theme/variables.css';
 import './theme/custom.css';
+import CommitteeDetail from './pages/CommitteeDetail/index';
 
 const App: React.FC = () => (
   <CacheProvider>
@@ -88,6 +89,7 @@ const App: React.FC = () => (
                   component={CommitteeList}
                   exact={true}
                 />
+                <Route path="/committees/:id" component={CommitteeDetail} />
                 <Route path="/events" component={EventList} exact={true} />
                 <Route path="/events/:id" component={EventDetail} />
                 <Route path="/pages/:id" component={ResourcePageDetail} />
