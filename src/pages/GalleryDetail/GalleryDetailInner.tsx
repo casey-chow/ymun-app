@@ -29,7 +29,7 @@ const GalleryDetailInner: React.FC<GalleryDetailInnerProps> = ({ id }) => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/press/gallery/" />
           </IonButtons>
-          <IonTitle>Map</IonTitle>
+          <IonTitle>Photo</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent class="map-detail" scrollY={false}>

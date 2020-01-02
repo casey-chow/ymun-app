@@ -7,6 +7,8 @@ import {
   IonRow,
   IonCol,
   IonGrid,
+  IonButtons,
+  IonBackButton,
 } from '@ionic/react';
 import _ from 'lodash';
 import { useResource, useRetrieve } from 'rest-hooks';
@@ -28,6 +30,9 @@ const GalleryInner: React.FC = () => {
     <>
       <IonHeader>
         <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/posts" />
+          </IonButtons>
           <IonTitle>Gallery</IonTitle>
         </IonToolbar>
       </IonHeader>

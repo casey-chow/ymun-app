@@ -1,4 +1,11 @@
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButtons,
+  IonButton,
+} from '@ionic/react';
 import React from 'react';
 import { useResource } from 'rest-hooks';
 import PostResource from '../../resources/post';
@@ -12,6 +19,9 @@ const PostListInner: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Posts</IonTitle>
+          <IonButtons slot="primary">
+            <IonButton routerLink="/press/gallery">Gallery »</IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent className="post-list">

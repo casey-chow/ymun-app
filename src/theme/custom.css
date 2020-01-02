@@ -17,9 +17,22 @@ ion-tab-bar .home-tab ion-icon {
 }
 
 ion-title,
-ion-back-button .button-text {
+ion-back-button .button-text,
+ion-toolbar ion-button {
   color: #01a490;
   font-family: 'Cachet', 'Verdana', sans-serif;
+}
+
+ion-title.title-default {
+  font-size: 1.25rem;
+}
+
+ion-toolbar ion-select {
+  font-family: 'Cachet', 'Verdana', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.25rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.25rem;
 }
 
 .ios ion-back-button .button-text {
