@@ -12,5 +12,7 @@ export default class CommitteeResource extends BaseResource {
 
   readonly staffers: string = '';
 
-  readonly links?: string;
+  readonly topic_description_url?: string;
+
+  readonly misc?: string;
 }
