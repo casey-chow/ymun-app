@@ -11,7 +11,7 @@ const ResourceCategoryList: React.FC = () => {
     <IonPage>
       <NetworkErrorBoundary fallbackComponent={NetworkErrorFallback}>
         <Suspense fallback={<SuspenseFallback title="Resources" />}>
-          <ResourceCategoryListInner></ResourceCategoryListInner>
+          <ResourceCategoryListInner />
         </Suspense>
       </NetworkErrorBoundary>
     </IonPage>
