@@ -15,7 +15,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ photo }) => {
     file && file.data.thumbnails.find((thumb) => thumb.width === 300);
   return (
     <div>
-      <IonRouterLink href={`/press/gallery/${photo.id}`}>
+      <IonRouterLink routerLink={`/press/gallery/${photo.id}`}>
         {thumbnail && <IonImg src={thumbnail.url} />}
       </IonRouterLink>
     </div>

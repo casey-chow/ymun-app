@@ -57,7 +57,6 @@ const App: React.FC = () => (
             <IonTabs>
               <IonRouterOutlet>
                 <Route path="/press" component={Press} exact={true} />
-                {/* <Route path="/gallery" component={Gallery} exact={true} /> */}
                 <Route
                   path="/rooms/committees"
                   component={CommitteeRoomAssignments}
