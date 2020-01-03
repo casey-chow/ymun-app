@@ -8,6 +8,7 @@ import {
   IonToolbar,
   IonCard,
   IonImg,
+  isPlatform,
 } from '@ionic/react';
 import React from 'react';
 import { useResource, useRetrieve } from 'rest-hooks';
@@ -42,19 +43,25 @@ const ResourceCategoryListInner: React.FC = () => {
         <div className="background-inner">
           <IonGrid className="category-grid">
             <IonRow style={{ marginBottom: '3rem' }}>
-              <IonCol size="6" class="resource-column">
-                <IonCard
-                  routerLink="/committees"
-                  button
-                  class="resource-category-tile"
-                >
-                  {/* div is necessary to prevent rendering error with react + web components */}
-                  <div>
-                    <IonImg src="/assets/committees.jpg" />
-                  </div>
-                </IonCard>
-                <h2 className="tile-title">Committees</h2>
-              </IonCol>
+              {resourceCategories.length > 0 && (
+                <IonCol size="6" class="resource-column">
+                  <IonCard
+                    routerLink="/committees"
+                    button
+                    class={
+                      isPlatform('android')
+                        ? 'resource-category-tile expand'
+                        : 'resource-category-tile'
+                    }
+                  >
+                    {/* div is necessary to prevent rendering error with react + web components */}
+                    <div>
+                      <IonImg src="/assets/committees.jpg" />
+                    </div>
+                  </IonCard>
+                  <h2 className="tile-title">Committees</h2>
+                </IonCol>
+              )}
 
               {resourceCategories.map((category) => (
                 <IonCol key={category.id} size="6" class="resource-column">
